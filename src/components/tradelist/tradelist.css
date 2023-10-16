@@ -1,0 +1,383 @@
+.trade-list-page {
+    background-color: #83687b;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .trade-list-page .overlap-wrapper {
+    background-color: #83687b;
+    height: 1311px;
+    overflow: hidden;
+    width: 1439px;
+  }
+  
+  .trade-list-page .overlap {
+    height: 1311px;
+    left: 1px;
+    position: relative;
+    width: 1440px;
+  }
+  
+  .trade-list-page .nav-bg {
+    height: 219px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 1440px;
+  }
+  
+  .trade-list-page .overlap-group {
+    height: 220px;
+    position: relative;
+    width: 1438px;
+  }
+  
+  .trade-list-page .vector {
+    height: 121px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 822px;
+  }
+  
+  .trade-list-page .img {
+    height: 220px;
+    left: 637px;
+    position: absolute;
+    top: 0;
+    width: 801px;
+  }
+  
+  .trade-list-page .book-cycle {
+    color: #ffffff;
+    font-family: "Roboto-Bold", Helvetica;
+    font-size: 30px;
+    font-weight: 700;
+    height: 35px;
+    left: 118px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 32px;
+    white-space: nowrap;
+  }
+  
+  .trade-list-page .rectangle {
+    background-color: #ffffff;
+    border-radius: 20px;
+    height: 1092px;
+    left: 186px;
+    position: absolute;
+    top: 219px;
+    width: 1065px;
+  }
+  
+  .trade-list-page .div {
+    background-color: #c39bb752;
+    border: 1px solid;
+    border-color: #000000;
+    filter: blur(30px);
+    height: 972px;
+    left: 261px;
+    position: absolute;
+    top: 267px;
+    width: 915px;
+  }
+  
+  .trade-list-page .author-btn {
+    height: 58px;
+    left: 277px;
+    position: absolute;
+    top: 286px;
+    width: 214px;
+  }
+  
+  .trade-list-page .overlap-2 {
+    background-color: #2e1115;
+    border-radius: 20px;
+    height: 58px;
+    position: relative;
+    width: 212px;
+    
+  }
+  
+  .trade-list-page .drop-down {
+    height: 15px;
+    left: 143px;
+    position: absolute;
+    top: 22px;
+    width: 23px;
+  }
+  
+  .trade-list-page .overlap-group-2 {
+    height: 15px;
+    position: relative;
+    width: 25px;
+  }
+  
+  .trade-list-page .line {
+    height: 15px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 15px;
+  }
+  
+  .trade-list-page .line-2 {
+    height: 14px;
+    left: 11px;
+    position: absolute;
+    top: 0;
+    width: 14px;
+  }
+  
+  .trade-list-page .text-wrapper {
+    color: #ffffff;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    left: 47px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 11px;
+  }
+  
+  .trade-list-page .group {
+    height: 364px;
+    left: 277px;
+    position: absolute;
+    top: 387px;
+    width: 897px;
+  }
+  
+  .trade-list-page .overlap-3 {
+    background-color: #ffffff;
+    border-radius: 15px;
+    height: 364px;
+    position: relative;
+    width: 885px;
+  }
+  
+  .trade-list-page .form-control {
+    color: #7a2640;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-size: 35px;
+    font-weight: 600;
+    left: 75px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    position: absolute;
+    top: 118px;
+    white-space: nowrap;
+  }
+  
+  .trade-list-page .form-control-2 {
+    color: #7a2640;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-size: 35px;
+    font-weight: 600;
+    left: 75px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    position: absolute;
+    top: 212px;
+    white-space: nowrap;
+  }
+  
+  .trade-list-page .form-control-3 {
+    color: #7a2640;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-size: 35px;
+    font-weight: 600;
+    left: 75px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    position: absolute;
+    top: 165px;
+    white-space: nowrap;
+  }
+  
+  .trade-list-page .form-control-4 {
+    color: #7a2640;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-size: 35px;
+    font-weight: 600;
+    left: 75px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    position: absolute;
+    top: 259px;
+    white-space: nowrap;
+  }
+  
+  .trade-list-page .form-control-5 {
+    color: #7a2640;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-size: 35px;
+    font-weight: 600;
+    left: 75px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    position: absolute;
+    top: 306px;
+    white-space: nowrap;
+  }
+  
+  .trade-list-page .frame {
+    height: 24px;
+    left: 345px;
+    position: absolute;
+    top: 118px;
+    width: 323px;
+  }
+  
+  .trade-list-page .form-control-6 {
+    color: #000000;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 30px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    position: absolute;
+    top: -1px;
+    white-space: nowrap;
+  }
+  
+  .trade-list-page .form-control-wrapper {
+    height: 24px;
+    left: 345px;
+    position: absolute;
+    top: 165px;
+    width: 180px;
+  }
+  
+  .trade-list-page .div-wrapper {
+    height: 24px;
+    left: 345px;
+    position: absolute;
+    top: 213px;
+    width: 121px;
+  }
+  
+  .trade-list-page .frame-2 {
+    height: 24px;
+    left: 345px;
+    position: absolute;
+    top: 261px;
+    width: 101px;
+  }
+  
+  .trade-list-page .frame-3 {
+    height: 24px;
+    left: 345px;
+    position: absolute;
+    top: 309px;
+    width: 168px;
+  }
+  
+  .trade-list-page .text-wrapper-2 {
+    color: #644f52;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 40px;
+    font-weight: 700;
+    left: 75px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 8px;
+  }
+  
+  .trade-list-page .overlap-group-wrapper {
+    height: 414px;
+    left: 277px;
+    position: absolute;
+    top: 794px;
+    width: 899px;
+  }
+  
+  .trade-list-page .overlap-4 {
+    background-color: #ffffff;
+    border-radius: 15px;
+    height: 414px;
+    position: relative;
+    width: 885px;
+  }
+  
+  .trade-list-page .form-control-7 {
+    color: #7a2640;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-size: 35px;
+    font-weight: 600;
+    left: 75px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    position: absolute;
+    top: 354px;
+    white-space: nowrap;
+  }
+  
+  .trade-list-page .frame-4 {
+    height: 24px;
+    left: 435px;
+    position: absolute;
+    top: 118px;
+    width: 305px;
+  }
+  
+  .trade-list-page .frame-5 {
+    height: 24px;
+    left: 435px;
+    position: absolute;
+    top: 165px;
+    width: 261px;
+  }
+  
+  .trade-list-page .frame-6 {
+    height: 24px;
+    left: 435px;
+    position: absolute;
+    top: 213px;
+    width: 130px;
+  }
+  
+  .trade-list-page .frame-7 {
+    height: 24px;
+    left: 435px;
+    position: absolute;
+    top: 261px;
+    width: 101px;
+  }
+  
+  .trade-list-page .frame-8 {
+    height: 24px;
+    left: 435px;
+    position: absolute;
+    top: 309px;
+    width: 120px;
+  }
+  
+  .trade-list-page .frame-9 {
+    height: 24px;
+    left: 435px;
+    position: absolute;
+    top: 357px;
+    width: 168px;
+  }
+  .trade-list-page .input{
+      flex-grow: 1;
+      padding: 10px;
+      position: absolute;
+      width: 12vw;
+      left: 40vw;
+      bottom: 1px;
+    }
+  .trade-list-page .dropdown-arrow{
+    left: 50px;
+    margin-left: 50px;
+  }

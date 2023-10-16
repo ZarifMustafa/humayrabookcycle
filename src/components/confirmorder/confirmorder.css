@@ -1,0 +1,358 @@
+.confirm-order-page {
+  background-color: #83687b;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.confirm-order-page .overlap-wrapper {
+  background-color: #83687b;
+  height: 1135px;
+  overflow: hidden;
+  width: 1440px;
+}
+
+.confirm-order-page .overlap {
+  height: 1135px;
+  position: relative;
+}
+
+.confirm-order-page .rectangle {
+  background-color: #ffffff;
+  border-radius: 20px;
+  height: 1135px;
+  left: 188px;
+  position: absolute;
+  top: 0;
+  width: 1065px;
+}
+
+.confirm-order-page .nav-bg {
+  height: 219px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1440px;
+}
+
+.confirm-order-page .overlap-group {
+  height: 220px;
+  position: relative;
+  width: 1439px;
+}
+
+.confirm-order-page .vector {
+  height: 121px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 822px;
+}
+
+.confirm-order-page .img {
+  height: 220px;
+  left: 637px;
+  position: absolute;
+  top: 0;
+  width: 802px;
+}
+
+.confirm-order-page .book-cycle {
+  color: #ffffff;
+  font-family: "Roboto-Bold", Helvetica;
+  font-size: 30px;
+  font-weight: 700;
+  height: 35px;
+  left: 97px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 47px;
+  white-space: nowrap;
+}
+.confirm-order-page .book-cycle:hover {
+  transform: scale(1.2);
+        transition: 0.3s;
+}
+
+.confirm-order-page .div {
+  background-color: #c39bb752;
+  border: 1px solid;
+  border-color: #000000;
+  filter: blur(30px);
+  height: 817px;
+  left: 246px;
+  position: absolute;
+  top: 235px;
+  width: 948px;
+}
+
+.confirm-order-page .frame {
+  height: 745px;
+  left: 278px;
+  position: absolute;
+  top: 274px;
+  width: 885px;
+}
+
+.confirm-order-page .rectangle-2 {
+  background-color: #ffffff;
+  border-radius: 15px;
+  height: 751px;
+  position: relative;
+  top: -6px;
+}
+
+.confirm-order-page .text-wrapper {
+  color: #644f52;
+  font-family: "Poppins-Bold", Helvetica;
+  font-size: 40px;
+  font-weight: 700;
+  left: 350px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 342px;
+  width: 705px;
+}
+
+.confirm-order-page .form-control {
+  color: #7a2640;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-size: 35px;
+  font-weight: 600;
+  left: 368px;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  position: absolute;
+  top: 705px;
+  white-space: nowrap;
+}
+
+.confirm-order-page .frame-2 {
+  height: 251px;
+  left: 368px;
+  position: absolute;
+  top: 455px;
+  width: 705px;
+}
+
+.confirm-order-page .paradoxical-sajid-wrapper {
+  height: 251px;
+  left: 540px;
+  position: absolute;
+  top: 0;
+  width: 165px;
+}
+
+.confirm-order-page .paradoxical-sajid {
+  height: 230px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 165px;
+}
+
+.confirm-order-page .form-control-2 {
+  color: #7a2640;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-size: 35px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  position: absolute;
+  top: 52px;
+  white-space: nowrap;
+}
+
+.confirm-order-page .form-control-3 {
+  color: #7a2640;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-size: 35px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  position: absolute;
+  top: 101px;
+  white-space: nowrap;
+}
+
+.confirm-order-page .form-control-wrapper {
+  height: 24px;
+  left: 165px;
+  position: absolute;
+  top: 53px;
+  width: 213px;
+}
+
+.confirm-order-page .form-control-4 {
+  color: #000000;
+  font-family: "Poppins-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  position: absolute;
+  top: -1px;
+  white-space: nowrap;
+}
+
+.confirm-order-page .div-wrapper {
+  height: 24px;
+  left: 165px;
+  position: absolute;
+  top: 102px;
+  width: 305px;
+}
+
+.confirm-order-page .frame-3 {
+  height: 103px;
+  left: 533px;
+  position: absolute;
+  top: 755px;
+  width: 360px;
+}
+
+.confirm-order-page .frame-4 {
+  height: 24px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 249px;
+}
+
+.confirm-order-page .frame-5 {
+  height: 54px;
+  left: 0;
+  position: absolute;
+  top: 49px;
+  width: 360px;
+}
+
+.confirm-order-page .frame-6 {
+  height: 24px;
+  left: 272px;
+  position: absolute;
+  top: 15px;
+  width: 88px;
+}
+
+.confirm-order-page .overlap-group-2 {
+  height: 54px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 260px;
+}
+
+.confirm-order-page .frame-7 {
+  background-image: url(./pngwing.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 54px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 56px;
+}
+
+.confirm-order-page .frame-8 {
+  background-image: url(./pngwing.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 54px;
+  left: 51px;
+  position: absolute;
+  top: 0;
+  width: 56px;
+}
+
+.confirm-order-page .frame-9 {
+  background-image: url(./pngwing.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 54px;
+  left: 102px;
+  position: absolute;
+  top: 0;
+  width: 56px;
+}
+
+.confirm-order-page .frame-10 {
+  background-image: url(./pngwing.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 54px;
+  left: 153px;
+  position: absolute;
+  top: 0;
+  width: 56px;
+}
+
+.confirm-order-page .frame-11 {
+  background-image: url(./pngwing.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 54px;
+  left: 204px;
+  position: absolute;
+  top: 0;
+  width: 56px;
+}
+
+.confirm-order-page .frame-12 {
+  background-color: #361a1e;
+  border-radius: 9.08px;
+  height: 51px;
+  left: 585px;
+  position: absolute;
+  top: 911px;
+  width: 270px;
+}
+.confirm-order-page .frame-12:hover {
+  transform: scale(1.2);
+  transition: 0.3s;
+}
+  
+.confirm-order-page .frame-14 {
+  height: 24px;
+  left: 585px;
+  position: absolute;
+  top: 606px;
+  width: 83px;
+}
+.confirm-order-page .form-control-13 {
+  color: #7a2640;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-size: 35px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  position: absolute;
+  top: 150px;
+  white-space: nowrap;
+}
+.confirm-order-page .frame-12:hover {
+  transform: scale(1.2);
+  transition: 0.3s;
+}
+
+.confirm-order-page .text-wrapper-2 {
+  color: #ffffff;
+  font-family: "Inter-Medium", Helvetica;
+  font-size: 21.8px;
+  font-weight: 500;
+  left: 45px;
+  letter-spacing: 0.18px;
+  line-height: 25.4px;
+  position: absolute;
+  top: 12px;
+  width: 181px;
+}

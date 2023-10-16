@@ -1,0 +1,581 @@
+.signup-page {
+    background-color: #83687b;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .signup-page .overlap-wrapper {
+    background-color: #83687b;
+    width: 1500px;
+    height: 1084px;
+  }
+  
+  .signup-page .overlap {
+    position: relative;
+    width: 1500px;
+    height: 1084px;
+  }
+  
+  .signup-page .rectangle {
+    position: absolute;
+    width: 1065px;
+    height: 1084px;
+    top: 0;
+    left: 188px;
+    background-color: #ffffff;
+    border-radius: 20px;
+  }
+  
+  .signup-page .nav-bg {
+    position: absolute;
+    width: 1500px;
+    height: 219px;
+    top: 0;
+    left: 0;
+  }
+  
+  .signup-page .div {
+    position: absolute;
+    width: 948px;
+    height: 816px;
+    top: 202px;
+    left: 246px;
+    background-color: #c39bb752;
+    border: 1px solid;
+    border-color: #000000;
+    filter: blur(30px);
+  }
+  
+  .signup-page .frame {
+    position: absolute;
+    width: 842px;
+    height: 685px;
+    top: 267px;
+    left: 299px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 63px #00000026;
+  }
+  
+  .signup-page .h {
+    position: absolute;
+    width: 236px;
+    top: 33px;
+    left: 303px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #644f52;
+    font-size: 28px;
+    text-align: center;
+    letter-spacing: 0.1px;
+    line-height: 32px;
+    white-space: nowrap;
+  }
+  
+  .signup-page .firstname-input {
+    position: absolute;
+    width: 238px;
+    height: 37px;
+    top: 150px;
+    left: 42px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: #e6e6e6;
+  }
+  
+  .signup-page .text-wrapper {
+    position: absolute;
+    top: 4px;
+    left: 21px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #737373;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    line-height: 28px;
+    white-space: nowrap;
+  }
+  
+  .signup-page .last-name-input {
+    position: absolute;
+    width: 237px;
+    height: 37px;
+    top: 150px;
+    left: 298px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: #e6e6e6;
+  }
+  
+  .signup-page .form-control {
+    position: absolute;
+    width: 125px;
+    top: 105px;
+    left: 46px;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: transparent;
+    font-size: 17px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    white-space: nowrap;
+  }
+  
+  .signup-page .span {
+    color: #7a2640;
+  }
+  
+  .signup-page .text-wrapper-2 {
+    color: #f4511e;
+  }
+  
+  .signup-page .p {
+    width: 139px;
+    top: 105px;
+    left: 303px;
+    position: absolute;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: transparent;
+    font-size: 17px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    white-space: nowrap;
+  }
+  
+  .signup-page .country-input {
+    position: absolute;
+    width: 238px;
+    height: 38px;
+    top: 222px;
+    left: 42px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: #e6e6e6;
+  }
+  
+  .signup-page .vector {
+    position: absolute;
+    width: 14px;
+    height: 8px;
+    top: 16px;
+    left: 189px;
+  }
+  
+  .signup-page .email {
+    position: absolute;
+    width: 749px;
+    top: 255px;
+    left: 46px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: var(--second-text-color);
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    line-height: 28px;
+    white-space: nowrap;
+  }
+  
+  .signup-page .form-control-2 {
+    width: 171px;
+    top: 179px;
+    left: 46px;
+    position: absolute;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: transparent;
+    font-size: 17px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    white-space: nowrap;
+  }
+  
+  .signup-page .form-control-3 {
+    width: 108px;
+    top: 105px;
+    left: 558px;
+    position: absolute;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: transparent;
+    font-size: 17px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    white-space: nowrap;
+  }
+  
+  .signup-page .form-control-4 {
+    width: 64px;
+    top: 179px;
+    left: 303px;
+    position: absolute;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: transparent;
+    font-size: 17px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    white-space: nowrap;
+  }
+  
+  .signup-page .select {
+    position: absolute;
+    width: 237px;
+    height: 38px;
+    top: 222px;
+    left: 298px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: #e6e6e6;
+  }
+  
+  .signup-page .option {
+    position: relative;
+    height: 50px;
+    top: -6px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: #dddddd;
+  }
+  
+  .signup-page .dropdown {
+    position: absolute;
+    top: 10px;
+    left: 18px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: var(--second-text-color);
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    line-height: 28px;
+    white-space: nowrap;
+  }
+  
+  .signup-page .img {
+    position: absolute;
+    width: 14px;
+    height: 8px;
+    top: 21px;
+    left: 194px;
+  }
+  
+  .signup-page .input-form-control {
+    position: absolute;
+    width: 347px;
+    height: 38px;
+    top: 343px;
+    left: 47px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: #e6e6e6;
+  }
+  
+  .signup-page .email-wrapper {
+    width: 360px;
+    top: 430px;
+    left: 47px;
+    position: absolute;
+    height: 38px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: #e6e6e6;
+  }
+  
+  .signup-page .country-input-2 {
+    position: absolute;
+    width: 238px;
+    height: 38px;
+    top: 520px;
+    left: 49px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: #e6e6e6;
+  }
+  
+  .signup-page .div-wrapper {
+    width: 357px;
+    top: 343px;
+    left: 435px;
+    position: absolute;
+    height: 38px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: #e6e6e6;
+  }
+  
+  .signup-page .input {
+    position: absolute;
+    top: 4px;
+    left: 0px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: var(--second-text-color);
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    line-height: 28px;
+    white-space: nowrap;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    width: 200px;
+  }
+  
+  .signup-page .inputDoB {
+    position: absolute;
+    top: 4px;
+    left: 0px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: var(--second-text-color);
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    line-height: 28px;
+    white-space: nowrap;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    width: 310px;
+  }
+  
+  .signup-page .inputPass {
+    position: absolute;
+    top: 4px;
+    left: 0px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: var(--second-text-color);
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    line-height: 28px;
+    white-space: nowrap;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0;
+    width: 300px;
+  }
+  
+  .signup-page .input-form-control-2 {
+    width: 357px;
+    top: 430px;
+    left: 435px;
+    position: absolute;
+    height: 38px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: #e6e6e6;
+  }
+  
+  .signup-page .form-control-5 {
+    width: 122px;
+    top: 299px;
+    left: 46px;
+    position: absolute;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: transparent;
+    font-size: 17px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    white-space: nowrap;
+  }
+  
+  .signup-page .form-control-6 {
+    width: 273px;
+    top: 387px;
+    left: 47px;
+    position: absolute;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: transparent;
+    font-size: 17px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    white-space: nowrap;
+  }
+  
+  .signup-page .form-control-7 {
+    width: 183px;
+    top: 387px;
+    left: 434px;
+    position: absolute;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: transparent;
+    font-size: 17px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    white-space: nowrap;
+  }
+  
+  .signup-page .form-control-8 {
+    width: 92px;
+    top: 299px;
+    left: 434px;
+    position: absolute;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: transparent;
+    font-size: 17px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    white-space: nowrap;
+  }
+  
+  .signup-page .interest-of-books {
+    position: absolute;
+    width: 186px;
+    top: 474px;
+    left: 49px;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: transparent;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .signup-page .become-member-btn {
+    position: absolute;
+    width: 325px;
+    height: 51px;
+    top: 579px;
+    left: 255px;
+  }
+  
+  .signup-page .overlap-group {
+    position: relative;
+    width: 323px;
+    height: 51px;
+    background-color: #361a1e;
+    border-radius: 9.08px;
+  }
+  
+  .signup-page .overlap-group:hover {
+    transform: scale(1.2);
+    transition: 0.3s;
+  }
+  
+  .signup-page .text-wrapper-3 {
+    position: absolute;
+    width: 212px;
+    top: 16px;
+    left: 56px;
+    font-family: "Inter-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 21.8px;
+    letter-spacing: 0.18px;
+    line-height: 25.4px;
+    white-space: nowrap;
+    user-select: none;
+    background-color: transparent;
+    outline: none;
+    border: none;
+  }
+  
+  .signup-page .phone-number-input {
+    position: absolute;
+    width: 237px;
+    height: 37px;
+    top: 150px;
+    left: 554px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid;
+    border-color: #e6e6e6;
+  }
+  
+  .signup-page .book-cycle {
+    position: absolute;
+    height: 35px;
+    top: 41px;
+    left: 116px;
+    font-family: "Roboto-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+    user-select: none;
+  }
+  .signup-page .book-cycle:hover {
+    transform: scale(1.2);
+    transition: 0.3s;
+  }
+  
+  .fade-out {
+    animation: fadeOut 0.5s ease-in-out forwards;
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  body.fade-in {
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .slide-right {
+    animation: slideOutRight 0.5s ease-in-out forwards;
+  }
+  
+  @keyframes slideOutRight {
+    0% {
+      transform: translateX(0);
+    }
+  
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .slide-left {
+    animation: slideOutLeft 0.5s ease-in-out forwards;
+  }
+  
+  

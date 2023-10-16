@@ -1,0 +1,315 @@
+.confirm-borrow-page {
+    background-color: #83687b;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .confirm-borrow-page .overlap-wrapper {
+    background-color: #83687b;
+    height: 1136px;
+    width: 1440px;
+  }
+  
+  .confirm-borrow-page .overlap {
+    height: 1136px;
+    position: relative;
+    width: 1439px;
+  }
+  
+  .confirm-borrow-page .rectangle {
+    background-color: #ffffff;
+    border-radius: 20px;
+    height: 1136px;
+    left: 188px;
+    position: absolute;
+    top: 0;
+    width: 1065px;
+  }
+  
+  .confirm-borrow-page .nav-bg {
+    height: 220px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 1439px;
+  }
+  
+  .confirm-borrow-page .div {
+    background-color: #c39bb752;
+    border: 1px solid;
+    border-color: #000000;
+    filter: blur(30px);
+    height: 817px;
+    left: 246px;
+    position: absolute;
+    top: 235px;
+    width: 948px;
+  }
+  
+  .confirm-borrow-page .frame {
+    height: 745px;
+    left: 278px;
+    position: absolute;
+    top: 274px;
+    width: 885px;
+  }
+  
+  .confirm-borrow-page .rectangle-2 {
+    background-color: #ffffff;
+    border-radius: 15px;
+    height: 751px;
+    position: relative;
+    top: -6px;
+  }
+  
+  .confirm-borrow-page .text-wrapper {
+    color: #644f52;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 40px;
+    font-weight: 700;
+    left: 368px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 335px;
+    width: 705px;
+  }
+  
+  .confirm-borrow-page .frame-2 {
+    background-image: url(./img/SajidCover.png);
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 230px;
+    left: 908px;
+    position: absolute;
+    top: 455px;
+    width: 165px;
+  }
+  
+  .confirm-borrow-page .form-control {
+    color: #7a2640;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-size: 35px;
+    font-weight: 600;
+    left: 368px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    position: absolute;
+    top: 507px;
+    white-space: nowrap;
+  }
+  
+  .confirm-borrow-page .form-control-2 {
+    color: #7a2640;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-size: 35px;
+    font-weight: 600;
+    left: 368px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    position: absolute;
+    top: 705px;
+    white-space: nowrap;
+  }
+  
+  .confirm-borrow-page .form-control-3 {
+    color: #7a2640;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-size: 35px;
+    font-weight: 600;
+    left: 368px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    position: absolute;
+    top: 556px;
+    white-space: nowrap;
+  }
+  
+  .confirm-borrow-page .form-control-4 {
+    color: #7a2640;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-size: 35px;
+    font-weight: 600;
+    left: 368px;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    position: absolute;
+    top: 605px;
+    white-space: nowrap;
+  }
+  
+  .confirm-borrow-page .form-control-wrapper {
+    height: 24px;
+    left: 533px;
+    position: absolute;
+    top: 508px;
+    width: 213px;
+  }
+  
+  .confirm-borrow-page .form-control-5 {
+    color: #000000;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 30px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0.2px;
+    line-height: 24px;
+    position: absolute;
+    top: -1px;
+    white-space: nowrap;
+  }
+  
+  .confirm-borrow-page .div-wrapper {
+    height: 24px;
+    left: 533px;
+    position: absolute;
+    top: 557px;
+    width: 305px;
+  }
+  
+  .confirm-borrow-page .frame-3 {
+    height: 24px;
+    left: 623px;
+    position: absolute;
+    top: 606px;
+    width: 83px;
+  }
+  
+  .confirm-borrow-page .frame-4 {
+    height: 24px;
+    left: 533px;
+    position: absolute;
+    top: 755px;
+    width: 249px;
+  }
+  
+  .confirm-borrow-page .frame-5 {
+    height: 54px;
+    left: 533px;
+    position: absolute;
+    top: 804px;
+    width: 360px;
+  }
+  
+  .confirm-borrow-page .frame-6 {
+    height: 24px;
+    left: 272px;
+    position: absolute;
+    top: 15px;
+    width: 88px;
+  }
+  
+  .confirm-borrow-page .overlap-group {
+    height: 54px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 260px;
+  }
+  
+  .confirm-borrow-page .frame-7 {
+    background-image: url(./pngwing.png);
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 54px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 56px;
+  }
+  
+  .confirm-borrow-page .frame-8 {
+    background-image: url(./pngwing.png);
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 54px;
+    left: 51px;
+    position: absolute;
+    top: 0;
+    width: 56px;
+  }
+  
+  .confirm-borrow-page .frame-9 {
+    background-image: url(./pngwing.png);
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 54px;
+    left: 102px;
+    position: absolute;
+    top: 0;
+    width: 56px;
+  }
+  
+  .confirm-borrow-page .frame-10 {
+    background-image: url(./pngwing.png);
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 54px;
+    left: 153px;
+    position: absolute;
+    top: 0;
+    width: 56px;
+  }
+  
+  .confirm-borrow-page .frame-11 {
+    background-image: url(./pngwing.png);
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 54px;
+    left: 204px;
+    position: absolute;
+    top: 0;
+    width: 56px;
+  }
+  
+  .confirm-borrow-page .frame-12 {
+    background-color: #361a1e;
+    border-radius: 9.08px;
+    height: 51px;
+    left: 585px;
+    position: absolute;
+    top: 903px;
+    width: 270px;
+  }
+
+  .confirm-borrow-page .frame-12:hover {
+    transform: scale(1.2);
+    transition: 0.3s;
+  }
+  
+  .confirm-borrow-page .text-wrapper-2 {
+    color: #ffffff;
+    font-family: "Inter-Medium", Helvetica;
+    font-size: 21.8px;
+    font-weight: 500;
+    left: 45px;
+    letter-spacing: 0.18px;
+    line-height: 25.4px;
+    position: absolute;
+    top: 12px;
+    width: 181px;
+  }
+
+  .confirm-borrow-page .book-cycle {
+    position: absolute;
+    height: 35px;
+    top: 41px;
+    left: 116px;
+    font-family: "Roboto-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.confirm-borrow-page .book-cycle:hover {
+    transform: scale(1.2);
+    transition: 0.3s;
+}
