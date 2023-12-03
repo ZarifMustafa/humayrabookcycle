@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import { useNavigate } from "react-router";
 import {toast} from "react-toastify";
 import "./register.css";
+import { setLoggedIn } from '../LocalStorage/LocalStorage.js';
 
 const Register = () => {
 
@@ -37,19 +38,22 @@ const Register = () => {
             password: pass,
             city: city,
             area: area,
-            interest: interest,
+            interest: "",
             dob: dob
         }
 
+
+
         const res=await axios.post("http://localhost:5000/insertuser", requestBody);
         const data = res.data;
-
+        console.log(data)
+        console.log(res)
         if(!data.acknowledged)
         {
             toast.error("Could not insert user");
             return;
         }
-
+        setLoggedIn(requestBody);
         toast.success("Successfully created user");
         navigate('/thankucreating');
     }
@@ -160,7 +164,7 @@ const Register = () => {
                   ></input>
                 </div>
               </div>
-              <div class="country-input-2">
+              {/* <div class="country-input-2">
                 <div class="text-wrapper">
                   <select class="input" name="Interest" required onChange={(e)=>{setinterest(e.target.value);}}>
                     <option value="None">Catagory</option>
@@ -174,7 +178,7 @@ const Register = () => {
                     <option value="Comics">Comics</option>
                   </select>
                 </div>
-              </div>
+              </div> */}
               <div class="div-wrapper">
                 <div class="text-wrapper">
                   <input
@@ -213,10 +217,10 @@ const Register = () => {
                 <span class="span">Email </span>{" "}
                 <span class="text-wrapper-2">*</span>
               </p>
-              <p class="interest-of-books">
+              {/* <p class="interest-of-books">
                 <span class="span">Interest of Books </span>{" "}
                 <span class="text-wrapper-2">*</span>
-              </p>
+              </p> */}
               <button class="become-member-btn" type="submit">
                 <div class="overlap-group">
                   <div class="text-wrapper-3">Become a Member</div>

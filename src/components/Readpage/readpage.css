@@ -1,0 +1,362 @@
+.read-page {
+  background-color: #83687b;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.read-page .overlap-wrapper {
+  background-color: #83687b;
+  height: 1955px;
+  overflow: hidden;
+  width: 1439px;
+}
+
+.read-page .overlap {
+  height: 1955px;
+  left: 1px;
+  position: relative;
+  width: 1440px;
+}
+
+.read-page .nav-bg {
+  height: 219px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1440px;
+}
+
+.read-page .overlap-group {
+  height: 220px;
+  position: relative;
+  width: 1438px;
+}
+
+.read-page .vector {
+  height: 121px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 822px;
+}
+
+.read-page .img {
+  height: 220px;
+  left: 637px;
+  position: absolute;
+  top: 0;
+  width: 801px;
+}
+
+.read-page .book-cycle {
+  color: #ffffff;
+  font-family: "Roboto-Bold", Helvetica;
+  font-size: 30px;
+  font-weight: 700;
+  height: 35px;
+  left: 118px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 32px;
+  white-space: nowrap;
+}
+
+.read-page .rectangle {
+  background-color: #ffffff;
+  border-radius: 20px;
+  height: 1736px;
+  left: 186px;
+  position: absolute;
+  top: 219px;
+  width: 1065px;
+}
+
+.read-page .div {
+  background-color: #c39bb752;
+  border: 1px solid;
+  border-color: #000000;
+  filter: blur(30px);
+  height: 1595px;
+  left: 245px;
+  position: absolute;
+  top: 278px;
+  width: 948px;
+}
+
+.read-page .rectangle-2 {
+  background-color: #ffffff;
+  border-radius: 30px;
+  height: 1096px;
+  left: 310px;
+  position: absolute;
+  top: 706px;
+  width: 817px;
+}
+
+.read-page .paradoxical-sajid {
+  height: 980px;
+  left: 367px;
+  object-fit: cover;
+  position: absolute;
+  top: 764px;
+  width: 703px;
+}
+
+.read-page .group {
+  height: 316px;
+  left: 310px;
+  position: absolute;
+  top: 337px;
+  width: 823px;
+}
+
+.read-page .overlap-2 {
+  background-color: #ffffff;
+  border-radius: 30px;
+  height: 316px;
+  position: relative;
+  width: 817px;
+}
+
+.read-page .form-control {
+  color: #7a2640;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-size: 35px;
+  font-weight: 600;
+  left: 325px;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  position: absolute;
+  top: 60px;
+  white-space: nowrap;
+}
+
+.read-page .text-wrapper {
+  color: #7a2640;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-size: 35px;
+  font-weight: 600;
+  left: 325px;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  position: absolute;
+  top: 176px;
+  white-space: nowrap;
+}
+
+.read-page .form-control-2 {
+  color: #7a2640;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-size: 35px;
+  font-weight: 600;
+  left: 325px;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  position: absolute;
+  top: 219px;
+  white-space: nowrap;
+}
+
+.read-page .frame {
+  height: 24px;
+  left: 489px;
+  position: absolute;
+  top: 176px;
+  width: 133px;
+}
+
+.read-page .form-control-3 {
+  color: #000000;
+  font-family: "Poppins-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  position: absolute;
+  top: -1px;
+  white-space: nowrap;
+}
+
+.read-page .form-control-wrapper {
+  height: 24px;
+  left: 489px;
+  position: absolute;
+  top: 219px;
+  width: 66px;
+}
+
+.read-page .frame-2 {
+  height: 54px;
+  left: 324px;
+  position: absolute;
+  top: 103px;
+  width: 360px;
+}
+
+.read-page .div-wrapper {
+  height: 24px;
+  left: 272px;
+  position: absolute;
+  top: 15px;
+  width: 88px;
+}
+
+.read-page .overlap-group-2 {
+  height: 54px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 260px;
+}
+
+.read-page .frame-3 {
+  background-image: url(./pngwing.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 54px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 56px;
+}
+
+.read-page .frame-4 {
+  background-image: url(./pngwing.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 54px;
+  left: 51px;
+  position: absolute;
+  top: 0;
+  width: 56px;
+}
+
+.read-page .frame-5 {
+  background-image: url(./pngwing.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 54px;
+  left: 102px;
+  position: absolute;
+  top: 0;
+  width: 56px;
+}
+
+.read-page .frame-6 {
+  background-image: url(./pngwing.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 54px;
+  left: 153px;
+  position: absolute;
+  top: 0;
+  width: 56px;
+}
+
+.read-page .frame-7 {
+  background-image: url(./pngwing.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 54px;
+  left: 204px;
+  position: absolute;
+  top: 0;
+  width: 56px;
+}
+
+.read-page .frame-8 {
+  background-image: url(./img/SajidCover.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 230px;
+  left: 59px;
+  position: absolute;
+  top: 41px;
+  width: 165px;
+}
+
+.read-page .frame-9 {
+  height: 50px;
+  left: 470px;
+  position: absolute;
+  top: 53px;
+  width: 295px;
+}
+
+.read-page .form-control-4 {
+  color: #000000;
+  font-family: "Poppins-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 19px;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  position: absolute;
+  top: 6px;
+  white-space: nowrap;
+}
+
+.read-page .log-in-btn {
+  height: 47px;
+  left: 928px;
+  position: absolute;
+  top: 26px;
+  width: 290px;
+}
+
+.read-page .rubaba-hadiel-wrapper {
+  background-color: #4f1b1d;
+  border-radius: 7px;
+  height: 47px;
+  position: relative;
+  width: 288px;
+}
+
+.read-page .rubaba-hadiel {
+  color: #ffffff;
+  font-family: "Poppins-Bold", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  left: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 6px;
+  width: 246px;
+}
+
+.read-page .overlap-group-wrapper {
+  height: 47px;
+  left: 1251px;
+  position: absolute;
+  top: 26px;
+  transition: all 0.2s ease;
+  width: 146px;
+}
+
+.read-page .log-out-wrapper {
+  background-color: #4f1b1d;
+  border-radius: 7px;
+  height: 47px;
+  position: relative;
+  width: 144px;
+}
+
+.read-page .log-out {
+  color: #ffffff;
+  font-family: "Poppins-Bold", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  left: 25px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 6px;
+}

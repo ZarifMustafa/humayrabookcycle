@@ -1,95 +1,170 @@
-import './tradelist.css';
+
+import "./tradelist.css";
+import React, { useState, useEffect } from 'react';
 
 
-function Tradelist() {
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
+
+
+export const Tradelist = () => {
+  const [rating, setrating] = useState();
+  const [copies, setCopies] = useState([]);
+  const navigate = useNavigate();
+
+  // let copies=[];
+  function Call_Home() {
+    navigate("/homepage");
+  }
+
+  const fetchData = async () => {
+    try {
+      const userEmail = JSON.parse(localStorage.getItem('currentUser')).email;
+      const response = await axios.get(`http://localhost:5000/getTrade/${userEmail}`);
+      
+      // Assuming the server responds with a JSON object
+      const data = response.data.copies;
+      setCopies(data);
+      console.log(data);
+    } catch (error) {
+      // Handle any errors that might occur during the fetch
+      console.error('Error fetching data:', error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+    
+  },[]);
+  const functionForRating  = async (e) => {
+   // e.preventDefault();
+  //   const requestBodyForRatings = {
+      
+  //       currentUserRating: rating,
+  //       bookTitle: JSON.parse(localStorage.getItem('bookToFind'))[0].title
+  //     }
+ 
+  //  try {
+  //           const response = await axios.put("http://localhost:5000/updateBookRating", requestBodyForRatings);
+  //           console.log(response.data);
+  //           const data = response.data;
+  //           if (!data.acknowledged) {
+  //             toast.error("Could not add copies to the book");
+  //             return;
+  //           }
+  //           toast.success("Successfully added the book");
+  //         } catch (error) {
+  //           console.error('AxiosError:', error);
+  //           if (error.response) {
+  //             console.log('Error response:', error.response.data);
+  //           }
+  //         }
+
+  };
+
+  const StarRating = () => {
+    // const [rating, setRating] = useState(0);
+    const [hover, setHover] = useState(0);
+    return (
+      <div className="star-rating">
+        {[...Array(5)].map((star, index) => {
+          index += 1;
+          return (
+            <button
+              type="button"
+              key={index}
+              className={index <= (hover || rating) ? "on" : "off"}
+              onClick={() => 
+                setrating(index)
+              }
+              onMouseEnter={() => setHover(index)}
+              onMouseLeave={() => setHover(rating)}
+            >
+              <span className="star">&#9733;</span>
+              <span className="star-image"></span>
+            </button>
+          );
+        })}
+      </div>
+    );
+  };
   return (
     <div className="trade-list-page">
-    <div className="overlap-wrapper">
-      <div className="overlap">
-        <div className="nav-bg">
-          <div className="overlap-group">
-          <img className="nav-bg" alt="Nav bg" src="nav-bg.png" />
-            <div className="book-cycle">Bookcycle</div>
+      <div className="overlap-wrapper">
+        <div className="overlap">
+          <div className="nav-bg">
+            <div className="overlap-group">
+            <img className="nav-bg" alt="Nav bg" src="img/NavBg.png" />
+            <div className="book-cycle" onClick={Call_Home}>Bookcycle</div>
+            </div>
           </div>
-        </div>
-        <div className="rectangle" />
-        <div className="div" />
-        <div className="author-btn">
-          <div className="overlap-2">
-            <div className="drop-down">
-              <div className="overlap-group-2">
-              <select id="author" className="input" name="author">
-                    <option value="All">All</option>
-                    <option value="Bought">Bought</option>
-                    <option value="Borrowed">Borrowed</option>
-                    <option value="Sold">Sold</option>
-                    <option value="Lent">Lent</option>
-                  </select>
-                  <span class="dropdown-arrow"></span>
+          <div className="rectangle" />
+          <div className="div" />
+          {
+            // copies && copies.length > 0 && (
+              copies.map((copy,index) => (
+                <div className="group">
+            <div className="overlap-2">
 
+              <div className="form-control">To/From:</div>
+              <div className="text-wrapper">Price:</div>
+              <div className="form-control-2">Date:</div>
+              <div className="frame">
+                <div className="form-control-3"> {copy.counterpart}</div>
+              </div>
+              <div className="form-control-wrapper">
+                <div className="form-control-3">{copy.price}</div>
+              </div>
+              <div className="div-wrapper">
+                <div className="form-control-3">{copy.date}
+                </div>
+              </div>
+              <button className="author-btn">
+                <div className="overlap-group-2">
+                  <div className="text-wrapper-2">Delete</div>
+                </div>
+              </button>
+              <div className="form-control-4">Activity:</div>
+              <div className="frame-2">
+            <div className="form-control-3">{copy.activity}</div>
+          </div>
+              <div className="overlap-group-wrapper">
+                <div className="rate-wrapper">
+                  <div className="rate">Rate</div>
+                </div>
+              </div>
+              <div className="form-control-5">Book Name:</div>
+              <div className="form-control-6">{copy.book}</div>
+              <div className="input-form-control">
+              <form id="searchForm" class="searchForm" onSubmit={functionForRating}>
+              {/* <input
+                      className="inputName"
+                      type="text"
+                      placeholder="Enter Rating of counterpart"
+                      onChange={(e) => {
+                        setrating(e.target.value);
+                      }}
+                    /> */}
+               
+                <StarRating></StarRating>
+                <button className="frame-111">
+                   <div className="rate111">Rate</div>
+                   </button>
+                     </form> 
               </div>
             </div>
-            <div className="text-wrapper">Author</div>
           </div>
-        </div>
-        <div className="group">
-          <div className="overlap-3">
-            <div className="form-control">Buyer:</div>
-            <div className="form-control-2">Trading ID:</div>
-            <div className="form-control-3">Book Name:</div>
-            <div className="form-control-4">Price:</div>
-            <div className="form-control-5">Date:</div>
-            <div className="frame">
-              <div className="form-control-6">Syeda Raisa Rahman</div>
-            </div>
-            <div className="form-control-wrapper">
-              <div className="form-control-6">Harry Porter</div>
-            </div>
-            <div className="div-wrapper">
-              <div className="form-control-6">T000163</div>
-            </div>
-            <div className="frame-2">
-              <div className="form-control-6">269.00</div>
-            </div>
-            <div className="frame-3">
-              <div className="form-control-6">08/10/2023</div>
-            </div>
-            <div className="text-wrapper-2">Sold</div>
-          </div>
-        </div>
-        <div className="overlap-group-wrapper">
-          <div className="overlap-4">
-            <div className="form-control">Borrower:</div>
-            <div className="form-control-2">Book Name:</div>
-            <div className="form-control-3">Price:</div>
-            <div className="form-control-4">Trading ID:</div>
-            <div className="form-control-5">Remaining Time:</div>
-            <div className="form-control-7">Date:</div>
-            <div className="frame-4">
-              <div className="form-control-6">Zarif Zeisan Mustafa</div>
-            </div>
-            <div className="frame-5">
-              <div className="form-control-6">Paradoxical Sajid</div>
-            </div>
-            <div className="frame-6">
-              <div className="form-control-6">T000288</div>
-            </div>
-            <div className="frame-7">
-              <div className="form-control-6">399.00</div>
-            </div>
-            <div className="frame-8">
-              <div className="form-control-6">25 Days</div>
-            </div>
-            <div className="frame-9">
-              <div className="form-control-6">08/10/2023</div>
-            </div>
-            <div className="text-wrapper-2">Lent</div>
-          </div>
+              
+            // )
+            )
+          )}
+          
+          
+          <div className="text-wrapper-3">My Trade list</div>
         </div>
       </div>
     </div>
-  </div>
-  )
-}
-
+  );
+};
 export default Tradelist;

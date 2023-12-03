@@ -1,0 +1,553 @@
+.add-book-borrow {
+    background-color: #83687b;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+    .add-book-borrow .overlap-wrapper {
+        background-color: #83687b;
+        width: 1500px;
+        height: 1191px;
+    }
+
+    .add-book-borrow .overlap {
+        position: relative;
+        width: 1500px;
+        height: 1191px;
+    }
+
+    .add-book-borrow .rectangle {
+        position: absolute;
+        width: 1065px;
+        height: 1191px;
+        top: 0;
+        left: 188px;
+        background-color: #ffffff;
+        border-radius: 20px;
+    }
+
+    .add-book-borrow .nav-bg {
+        position: absolute;
+        width: 1500px;
+        height: 220px;
+        top: 0;
+        left: 0;
+    }
+
+    .add-book-borrow .div {
+        position: absolute;
+        width: 948px;
+        height: 907px;
+        top: 202px;
+        left: 246px;
+        background-color: #c39bb752;
+        border: 1px solid;
+        border-color: #000000;
+        filter: blur(30px);
+    }
+
+    .add-book-borrow .frame {
+        position: absolute;
+        width: 1130px;
+        height: 951px;
+        top: 133px;
+        left: 188px;
+    }
+
+    .add-book-borrow .overlap-group {
+        position: relative;
+        width: 842px;
+        height: 776px;
+        top: 133px;
+        left: 110px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 4px 63px #00000026;
+    }
+
+    .add-book-borrow .h {
+        position: absolute;
+        width: 236px;
+        top: 19px;
+        left: 237px;
+        font-family: "Poppins-Bold", Helvetica;
+        font-weight: 700;
+        color: #644f52;
+        font-size: 28px;
+        text-align: center;
+        letter-spacing: 0.1px;
+        line-height: 32px;
+        white-space: nowrap;
+    }
+
+    .add-book-borrow .firstname-input {
+        position: absolute;
+        width: 586px;
+        height: 37px;
+        top: 120px;
+        left: 205px;
+        background-color: #f8f8f8;
+        border-radius: 5px;
+        overflow: hidden;
+        border: 1px solid;
+        border-color: #e6e6e6;
+    }
+
+    .add-book-borrow .text-wrapper {
+        position: absolute;
+        top: 4px;
+        left: 21px;
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: var(--second-text-color);
+        font-size: 14px;
+        letter-spacing: 0.2px;
+        line-height: 28px;
+        white-space: nowrap;
+    }
+
+    .add-book-borrow .form-control {
+        width: 125px;
+        top: 114px;
+        left: 46px;
+        font-weight: 600;
+        color: transparent;
+        position: absolute;
+        font-family: "Poppins-SemiBold", Helvetica;
+        font-size: 17px;
+        letter-spacing: 0.2px;
+        line-height: 24px;
+        white-space: nowrap;
+    }
+
+    .add-book-borrow .span {
+        color: #7a2640;
+    }
+
+    .add-book-borrow .text-wrapper-2 {
+        color: #f4511e;
+    }
+
+    .add-book-borrow .overlap-2 {
+        position: absolute;
+        width: 348px;
+        height: 38px;
+        top: 154px;
+        left: 46px;
+    }
+
+    .add-book-borrow .country-input {
+        position: absolute;
+        width: 189px;
+        height: 38px;
+        top: 14px;
+        left: 159px;
+        background-color: #f8f8f8;
+        border-radius: 5px;
+        overflow: hidden;
+        border: 1px solid;
+        border-color: #e6e6e6;
+    }
+
+    .add-book-borrow .vector {
+        position: absolute;
+        width: 14px;
+        height: 8px;
+        top: 16px;
+        left: 140px;
+    }
+
+    .add-book-borrow .p {
+        position: absolute;
+        width: 171px;
+        top: 9px;
+        left: 0;
+        font-family: "Poppins-SemiBold", Helvetica;
+        font-weight: 600;
+        color: transparent;
+        font-size: 17px;
+        letter-spacing: 0.2px;
+        line-height: 24px;
+        white-space: nowrap;
+    }
+
+    .add-book-borrow .overlap-3 {
+        position: absolute;
+        width: 347px;
+        height: 38px;
+        top: 154px;
+        left: 434px;
+    }
+
+    .add-book-borrow .country-input-2 {
+        position: absolute;
+        width: 203px;
+        height: 38px;
+        top: 14px;
+        left: 144px;
+        background-color: #f8f8f8;
+        border-radius: 5px;
+        overflow: hidden;
+        border: 1px solid;
+        border-color: #e6e6e6;
+    }
+
+    .add-book-borrow .img {
+        position: absolute;
+        width: 14px;
+        height: 8px;
+        top: 16px;
+        left: 154px;
+    }
+
+    .add-book-borrow .email {
+        position: absolute;
+        width: 749px;
+        top: 263px;
+        left: 47px;
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: var(--second-text-color);
+        font-size: 14px;
+        letter-spacing: 0.2px;
+        line-height: 28px;
+        white-space: nowrap;
+    }
+
+    .add-book-borrow .form-control-2 {
+        width: 160px;
+        top: 211px;
+        left: 45px;
+        font-weight: 600;
+        color: transparent;
+        position: absolute;
+        font-family: "Poppins-SemiBold", Helvetica;
+        font-size: 17px;
+        letter-spacing: 0.2px;
+        line-height: 24px;
+        white-space: nowrap;
+    }
+
+    .add-book-borrow .form-control-3 {
+        width: 323px;
+        top: 514px;
+        left: 47px;
+        font-weight: 600;
+        color: transparent;
+        position: absolute;
+        font-family: "Poppins-SemiBold", Helvetica;
+        font-size: 17px;
+        letter-spacing: 0.2px;
+        line-height: 24px;
+        white-space: nowrap;
+    }
+
+    .add-book-borrow .overlap-4 {
+        position: absolute;
+        width: 433px;
+        height: 38px;
+        top: 314px;
+        left: 140px;
+    }
+
+    .add-book-borrow .input-form-control {
+        position: absolute;
+        width: 347px;
+        height: 38px;
+        top: 14px;
+        left: 86px;
+        background-color: #f8f8f8;
+        border-radius: 5px;
+        overflow: hidden;
+        border: 1px solid;
+        border-color: #e6e6e6;
+    }
+
+    .add-book-borrow .form-control-4 {
+        width: 98px;
+        top: 8px;
+        left: 0;
+        font-weight: 400;
+        color: transparent;
+        position: absolute;
+        font-family: "Poppins-SemiBold", Helvetica;
+        font-size: 17px;
+        letter-spacing: 0.2px;
+        line-height: 24px;
+        white-space: nowrap;
+    }
+
+    .add-book-borrow .text-wrapper-3 {
+        font-weight: 600;
+        color: #7a2640;
+    }
+
+    .add-book-borrow .text-wrapper-4 {
+        font-family: "Poppins-Regular", Helvetica;
+        color: #f4511e;
+    }
+
+    .add-book-borrow .overlap-5 {
+        position: absolute;
+        width: 433px;
+        height: 38px;
+        top: 402px;
+        left: 140px;
+    }
+
+    .add-book-borrow .form-control-5 {
+        width: 98px;
+        top: 22px;
+        left: 0;
+        font-weight: 600;
+        color: #7a2640;
+        position: absolute;
+        font-family: "Poppins-SemiBold", Helvetica;
+        font-size: 17px;
+        letter-spacing: 0.2px;
+        line-height: 24px;
+        white-space: nowrap;
+    }
+
+    .add-book-borrow .overlap-6 {
+        position: absolute;
+        width: 433px;
+        height: 38px;
+        top: 451px;
+        left: 140px;
+    }
+
+    .add-book-borrow .form-control-6 {
+        width: 122px;
+        top: 303px;
+        left: 101px;
+        font-weight: 600;
+        color: #7a2640;
+        position: absolute;
+        font-family: "Poppins-SemiBold", Helvetica;
+        font-size: 17px;
+        letter-spacing: 0.2px;
+        line-height: 24px;
+        white-space: nowrap;
+    }
+
+    .add-book-borrow .form-control-7 {
+        width: 122px;
+        top: 391px;
+        left: 101px;
+        font-weight: 600;
+        color: #7a2640;
+        position: absolute;
+        font-family: "Poppins-SemiBold", Helvetica;
+        font-size: 17px;
+        letter-spacing: 0.2px;
+        line-height: 24px;
+        white-space: nowrap;
+    }
+
+    .add-book-borrow .div-wrapper {
+        position: absolute;
+        width: 323px;
+        height: 51px;
+        top: 673px;
+        left: 259px;
+        background-color: #361a1e;
+        border-radius: 9.08px;
+    }
+
+        .add-book-borrow .div-wrapper:hover {
+            transform: scale(1.2);
+            transition: 0.3s;
+        }
+
+        .add-book-borrow .text-wrapper-5 {
+            position: absolute;
+            width: 212px;
+            top: 700px;
+            left: 286px;
+            font-family: "Inter-Medium", Helvetica;
+            font-weight: 500;
+            color: #ffffff;
+            background-color: #4f1b1d;
+            font-size: 21.8px;
+            letter-spacing: 0.18px;
+            line-height: 25.4px;
+            white-space: nowrap;
+            user-select: none;
+            transition: all 0.2s ease;
+        }
+
+        .add-book-borrow .text-wrapper-5:hover {
+            transform: scale(1.1);
+            transition: 0.3s;
+          }
+          .add-book-borrow .text-wrapper-5:hover::after {
+            transition: 0.3s;
+          }
+
+    .add-book-borrow .group-wrapper {
+        position: absolute;
+        width: 744px;
+        height: 76px;
+        top: 567px;
+        left: 47px;
+        background-color: #f4511e03;
+        border-radius: 10px;
+        border: 1px dashed;
+        border-color: #371dae;
+    }
+
+    .add-book-borrow .group {
+        position: relative;
+        width: 284px;
+        height: 36px;
+        top: 18px;
+        left: 231px;
+    }
+
+    .add-book-borrow .drag-your-images {
+        position: absolute;
+        width: 280px;
+        top: -14px;
+        left: 0;
+        font-family: "Poppins-Medium", Helvetica;
+        font-weight: 400;
+        color: transparent;
+        font-size: 16px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+    }
+
+    .add-book-borrow .text-wrapper-6 {
+        font-weight: 500;
+        color: #000000;
+        user-select: none;
+    }
+
+    .add-book-borrow .text-wrapper-7 {
+        font-family: "Poppins-Bold", Helvetica;
+        font-weight: 700;
+        color: #2654c9;
+        user-select: none;
+    }
+
+    .add-book-borrow .supported-JPG-JPEG {
+        position: absolute;
+        width: 167px;
+        top: 22px;
+        left: 57px;
+        font-family: "Poppins-Medium", Helvetica;
+        font-weight: 500;
+        color: #00000080;
+        font-size: 12px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+    }
+
+    .add-book-borrow .input {
+        position: absolute;
+        top: 4px;
+        left: 0px;
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: var(--second-text-color);
+        font-size: 14px;
+        letter-spacing: 0.2px;
+        line-height: 28px;
+        white-space: nowrap;
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 0;
+        width: 150px;
+    }
+
+    .add-book-borrow .inputPrice {
+        position: absolute;
+        top: 4px;
+        left: 0px;
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: var(--second-text-color);
+        font-size: 14px;
+        letter-spacing: 0.2px;
+        line-height: 28px;
+        white-space: nowrap;
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 0;
+        width: 300px;
+    }
+
+    .add-book-borrow .inputName {
+        position: absolute;
+        top: 4px;
+        left: 0px;
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: var(--second-text-color);
+        font-size: 14px;
+        letter-spacing: 0.2px;
+        line-height: 28px;
+        white-space: nowrap;
+        background: transparent;
+        border: none;
+        outline: none;
+        padding: 0;
+        width: 500px;
+    }
+
+    .add-book-borrow .book-cycle {
+        position: absolute;
+        height: 35px;
+        top: 41px;
+        left: 116px;
+        font-family: "Roboto-Bold", Helvetica;
+        font-weight: 700;
+        color: #ffffff;
+        font-size: 30px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+        user-select: none;
+    }
+
+        .add-book-borrow .book-cycle:hover {
+            transform: scale(1.2);
+            transition: 0.3s;
+        }
+
+.slide-right {
+    animation: slideOutRight 0.5s ease-in-out forwards;
+}
+
+@keyframes slideOutRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.slide-left {
+    animation: slideOutLeft 0.5s ease-in-out forwards;
+}
+
+@keyframes slideOutLeft {
+    0% {
+        transform: translateX(0);
+    }
+
+100% {
+        transform: translateX(100%);}
+}

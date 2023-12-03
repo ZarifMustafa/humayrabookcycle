@@ -156,10 +156,12 @@
 
     .login-page .div-wrapper {
         position: relative;
-        width: 199px;
+        width: 215px;
         height: 50px;
         background-image: url(./img/rectangle-98.svg);
-        background-size: 100% 100%;
+        background-size: 120% 120%;
+        top:-5px;
+        left:-15px
     }
 
         .login-page .div-wrapper:hover {

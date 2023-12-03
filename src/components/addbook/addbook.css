@@ -365,17 +365,27 @@
         .buyborrowbook-page .text-wrapper-5 {
             position: absolute;
             width: 212px;
-            top: 15px;
-            left: 86px;
+            top: 700px;
+            left: 286px;
             font-family: "Inter-Medium", Helvetica;
             font-weight: 500;
             color: #ffffff;
+            background-color: #4f1b1d;
             font-size: 21.8px;
             letter-spacing: 0.18px;
             line-height: 25.4px;
             white-space: nowrap;
             user-select: none;
+            transition: all 0.2s ease;
         }
+
+        .buyborrowbook-page .text-wrapper-5:hover {
+            transform: scale(1.1);
+            transition: 0.3s;
+          }
+          .buyborrowbook-page .text-wrapper-5:hover::after {
+            transition: 0.3s;
+          }
 
     .buyborrowbook-page .group-wrapper {
         position: absolute;
@@ -513,6 +523,10 @@
         .buyborrowbook-page .book-cycle:hover {
             transform: scale(1.2);
             transition: 0.3s;
+        }
+
+        .buyborrowbook-page .input-from-file {
+            
         }
 
 .slide-right {

@@ -4,16 +4,19 @@
     flex-direction: row;
     justify-content: center;
     width: 100%;
+    height: 100%;
   }
   
   .borrow-page .overlap-wrapper {
     background-color: #83687b;
-    height: 2137px;
+    /* height: 2137px; */
+    height:100%;
     width: 1440px;
   }
   
   .borrow-page .overlap {
-    height: 2137px;
+    /* height: 2137px; */
+    height: 100%;
     position: relative;
     width: 1439px;
   }
@@ -21,7 +24,8 @@
   .borrow-page .rectangle {
     background-color: #ffffff;
     border-radius: 20px;
-    height: 2137px;
+    /* height: 2137px; */
+    height: 100%;
     left: 188px;
     position: absolute;
     top: 0;
@@ -41,7 +45,8 @@
     border: 1px solid;
     border-color: #000000;
     filter: blur(30px);
-    height: 1808px;
+    /* height: 1808px; */
+    height: 100%;
     left: 246px;
     position: absolute;
     top: 235px;
@@ -180,9 +185,10 @@
     border-radius: 15px;
     height: 351px;
     left: 278px;
-    position: absolute;
+    position: relative;
     top: 868px;
     width: 885px;
+    margin-bottom: 20px;
   }
   
   .borrow-page .form-control-5 {

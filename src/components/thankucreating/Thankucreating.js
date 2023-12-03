@@ -1,16 +1,26 @@
 import './thankucreating.css';
 import {Link} from 'react-router-dom';
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import { findUser } from '../LocalStorage/LocalStorage.js';
+
 function Thankucreating() {
   const navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useState({});
   function Call_Home() {
     navigate("/");
   }
+  useEffect(() => {
+    
+    return () => {
+      setCurrentUser(findUser());
+    }
+  }, [])
   return (
     <div className="thanku-creating">
+      |{console.log(currentUser,"uiiuiu")}
       <div className="div">
         <div className="nav-bg">
           <div className="overlap-group">
@@ -34,7 +44,7 @@ function Thankucreating() {
           </div>
           <div className="overlap-3">
             <div className="frame">
-              <div className="text-wrapper">Rubaba Hadiel</div>
+              <div className="text-wrapper">{currentUser.name}</div>
             </div>
             <div className="user-icon" />
           </div>

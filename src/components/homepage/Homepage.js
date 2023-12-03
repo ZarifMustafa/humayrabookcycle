@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router";
 import "./homepage.css";
+import { toast } from "react-toastify";
 
 function Homepage() {
     const navigate=useNavigate();
@@ -21,6 +22,9 @@ function Homepage() {
     navigate("/addBook");
   }
 
+  const requestToLogin = () => {
+    toast.error("Please login first");
+  }
   return (
     <div>
       <div className="home-page">
@@ -47,7 +51,7 @@ function Homepage() {
             </div>
             <div className="add-book-btn" onClick={call_addbook}>
               <div className="overlap-group">
-                <div className="text-wrapper-3">Add Book</div>
+                <div className="text-wrapper-3"></div>
               </div>
             </div>
             <div className="author-btn">
@@ -123,6 +127,7 @@ function Homepage() {
               className="search-bar"
               placeholder="Search"
               oninput="performSearch(this.value)"
+              onClick={requestToLogin}
             />
             <div id="searchResults"></div>
 
@@ -139,7 +144,7 @@ function Homepage() {
             </div>
             <div className="demo-books">
               <div className="text-wrapper-6">Demo Books</div>
-              <div className="quran">
+              <div className="quran" onClick={requestToLogin}>
                 <div className="demo-button-groups">
                   <div className="author-btn-2">
                     <div className="overlap-group-4">
@@ -160,7 +165,7 @@ function Homepage() {
                 <img className="img-2" src="img/AlQuranCover.png" />
                 <div className="al-quran">Al-quran</div>
               </div>
-              <div className="vallage-na">
+              <div className="vallage-na" onClick={requestToLogin}>
                 <div className="demo-button-groups-2">
                   <div className="author-btn-2">
                     <div className="overlap-group-4">
@@ -181,7 +186,7 @@ function Homepage() {
                 <div className="text-wrapper-10">Vallage Na</div>
                 <img className="element" src="img/VallageNaCover.png" />
               </div>
-              <div className="sajid">
+              <div className="sajid" onClick={requestToLogin}>
                 <div className="demo-button-groups-3">
                   <div className="author-btn-2">
                     <div className="overlap-group-4">
@@ -206,7 +211,7 @@ function Homepage() {
                   onClick={Call_BookDetails}
                 />
               </div>
-              <div className="nimikh-pane">
+              <div className="nimikh-pane" onClick={requestToLogin}>
                 <div className="demo-button-groups-4">
                   <div className="author-btn-2">
                     <div className="overlap-group-4">
@@ -227,7 +232,7 @@ function Homepage() {
                 <div className="nimikh-paane">Nimikh Paane</div>
                 <img className="element-adad" src="img/NimikhePaneCover.png" />
               </div>
-              <div className="golpo-guccho">
+              <div className="golpo-guccho" onClick={requestToLogin}>
                 <div className="demo-button-groups-4">
                   <div className="author-btn-2">
                     <div className="overlap-group-4">
@@ -245,7 +250,7 @@ function Homepage() {
                     </div>
                   </div>
                 </div>
-                <div className="golpoguchcho">
+                <div className="golpoguchcho" onClick={requestToLogin}>
                   Golpo
                   <br />
                   guchcho
@@ -270,7 +275,7 @@ function Homepage() {
                     </div>
                   </div>
                 </div>
-                <div className="BATMAN">Batman</div>
+                <div className="BATMAN" onClick={requestToLogin}>Batman</div>
                 <img className="img-2" src="img/BatmanCover.png" />
               </div>
             </div>

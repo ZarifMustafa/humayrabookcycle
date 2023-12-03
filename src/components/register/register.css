@@ -472,6 +472,7 @@
     position: relative;
     width: 323px;
     height: 51px;
+    left:-5px;
     background-color: #361a1e;
     border-radius: 9.08px;
   }
@@ -485,7 +486,7 @@
     position: absolute;
     width: 212px;
     top: 16px;
-    left: 56px;
+    left:56px;
     font-family: "Inter-Medium", Helvetica;
     font-weight: 500;
     color: #ffffff;

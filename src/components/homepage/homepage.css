@@ -101,6 +101,13 @@
     position: relative;
     width: 144px;
   }
+  .home-page .overlap-group-mine {
+    background-color: #4f1b1d;
+    border-radius: 7px;
+    height: 47px;
+    position: relative;
+    width: 244px;
+  }
   
   .home-page .text-wrapper-2 {
     position: absolute;

@@ -3,6 +3,7 @@ import "./addbook.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { calcLength } from "framer-motion";
 
 function Addbook() {
   const [name, setname] = useState();
@@ -11,23 +12,245 @@ function Addbook() {
   const [sellingprice, setsellingprice] = useState();
   const [lendingPrice, setlendingPrice] = useState();
   const [duration, setduration] = useState();
+  const [fileContent, setFileContent] = useState('');
   const navigate = useNavigate();
 
+  const imageStorageKey = "3ace044b7c7d9d5697f7eb8c463d2b4a";
+  const urlImageBB = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+
+  const handleFileChange = async (event) => {
+    const file = event.target.files[0];
+    setFileContent(file);
+    console.log(file);
+    // if (file) {
+    //   try {
+    //     const content = await readFileContent(file);
+    //     setFileContent(content);
+    //     console.log(content);
+    //   } catch (error) {
+    //     console.error('Error reading the file:', error);
+    //   }
+    // }
+
+
+    
+  };
+
+  const handleAddCustomer = async (e) => {
+
+    const image = fileContent;
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+
+      e.preventDefault();
+
+console.log(sellingprice);
+
+
+    
+    
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then(
+        (imgData) => {
+        if (imgData.success){
+          const copiesData = [
+            { sellPrice: sellingprice * 1, lendPrice: lendingPrice *1 },
+            // ... more copies data
+          ];
+          
+          console.log(copiesData);
+          
+          
+          // Create requestBody
+          const requestBody = {
+            title: name,
+            author: author,
+            genres: Array.isArray(catagory) ? catagory : [catagory],
+            rating: 0.0,
+            pages:0,
+            image: imgData.data.url,
+            price:0,
+            reviews: [
+              {
+                  name: "Shayla",
+                  comment:"Good",
+              },
+            ],
+          
+            copies: copiesData.map(copy => ({
+                owner: JSON.parse(localStorage.getItem('currentUser')).email,
+                current_holder: JSON.parse(localStorage.getItem('currentUser')).email,
+                selling_price: copy.sellPrice * 1,
+                rental_price: copy.lendPrice * 1,
+            })),
+          };
+          console.log(requestBody)
+          const requestBody2 = {
+            
+            title: name,
+            copies: copiesData.map(copy => ({
+                owner: JSON.parse(localStorage.getItem('currentUser')).email,
+                current_holder: JSON.parse(localStorage.getItem('currentUser')).email,
+                selling_price: copy.sellPrice * 1,
+                rental_price: copy.lendPrice * 1,
+            })),
+          };
+          // Use requestBody for further processing, e.g., inserting into MongoDB
+          
+          try{
+            const respp = axios.get("http://localhost:5000/getBooks");
+            const copies = respp.data;
+            console.log('Egula copies: ');
+            console.log(copies);
+            //const owner = JSON.parse(localStorage.getItem('currentUser')).email;
+           // const updatedRequests = [];
+           var flag =0;
+            for (let i = 0; i < copies.length; i++) {
+              if (copies[i].title === name) {
+                flag=1;
+                try {
+                  const response = axios.post("http://localhost:5000/addCopiesToBook", requestBody2);
+                  console.log(response.data);
+                  const data = response.data;
+                  if (!data.acknowledged) {
+                    toast.error("Could not add copies to the book");
+                    return;
+                  }
+                  toast.success("Successfully added the book");
+                } catch (error) {
+                  console.error('AxiosError:', error);
+                  if (error.response) {
+                    console.log('Error response:', error.response.data);
+                  }
+                }
+              }
+            }
+              if(flag===0)
+              { try{
+                const response = axios.post("http://localhost:5000/insertbook", requestBody);
+            console.log(response.data);
+            const data= response.data
+              if(!data.acknowledged)
+              {
+                  toast.error("Could not add book");
+                  return;
+              }
+          
+              toast.success("Successfully added the book");
+            // Process the data here
+          } catch (error) {
+            console.error('AxiosError:', error);
+            if (error.response) {
+              console.log('Error response:', error.response.data);
+            }
+          }
+            }
+          }catch (error) {
+            console.error('AxiosError:', error);
+            if (error.response) {
+              console.log('Error response:', error.response.data);
+            }
+          }
+          
+          
+              setTimeout(()=>{
+                  navigate("/loginhomepagemodified");
+              }, 1000);
+         }
+
+        })
+      }
   const handleAdd = async (e) => {
     e.preventDefault();
 
-    const requestBody = {
-      name: name,
-      category: catagory,
-      author: author,
-      sellPrice: sellingprice *1,
-      lendPrice: lendingPrice *1,
-      duration: duration *1,
-    };
+console.log(sellingprice)
 
-    const respose = await axios.post("http://localhost:5000/addbook", requestBody);
-    const data = respose.data;
+ // Assuming you have a copies array provided by the user
+ const copiesData = [
+  { sellPrice: sellingprice * 1, lendPrice: lendingPrice *1 },
+  // ... more copies data
+];
 
+console.log(copiesData);
+
+
+// Create requestBody
+const requestBody = {
+  title: name,
+  author: author,
+  genres: Array.isArray(catagory) ? catagory : [catagory],
+  rating: 0.0,
+  pages:0,
+  image:"",
+  price:0,
+  reviews: [
+    {
+        name: "Shayla",
+        comment:"Good",
+    },
+  ],
+
+  copies: copiesData.map(copy => ({
+      owner: JSON.parse(localStorage.getItem('currentUser')).email,
+      current_holder: JSON.parse(localStorage.getItem('currentUser')).email,
+      selling_price: copy.sellPrice * 1,
+      rental_price: copy.lendPrice * 1,
+  })),
+};
+console.log(requestBody)
+const requestBody2 = {
+  
+  title: name,
+  copies: copiesData.map(copy => ({
+      owner: JSON.parse(localStorage.getItem('currentUser')).email,
+      current_holder: JSON.parse(localStorage.getItem('currentUser')).email,
+      selling_price: copy.sellPrice * 1,
+      rental_price: copy.lendPrice * 1,
+  })),
+};
+// Use requestBody for further processing, e.g., inserting into MongoDB
+
+  
+
+
+try{
+  const respp = await axios.get("http://localhost:5000/getBooks");
+  const copies = respp.data;
+  console.log('Egula copies: ');
+  console.log(copies);
+  //const owner = JSON.parse(localStorage.getItem('currentUser')).email;
+ // const updatedRequests = [];
+ var flag =0;
+  for (let i = 0; i < copies.length; i++) {
+    if (copies[i].title === name) {
+      flag=1;
+      try {
+        const response = await axios.post("http://localhost:5000/addCopiesToBook", requestBody2);
+        console.log(response.data);
+        const data = response.data;
+        if (!data.acknowledged) {
+          toast.error("Could not add copies to the book");
+          return;
+        }
+        toast.success("Successfully added the book");
+      } catch (error) {
+        console.error('AxiosError:', error);
+        if (error.response) {
+          console.log('Error response:', error.response.data);
+        }
+      }
+    }
+  }
+    if(flag===0)
+    { try{
+      const response = await axios.post("http://localhost:5000/insertbook", requestBody);
+  console.log(response.data);
+  const data= response.data
     if(!data.acknowledged)
     {
         toast.error("Could not add book");
@@ -35,9 +258,24 @@ function Addbook() {
     }
 
     toast.success("Successfully added the book");
+  // Process the data here
+} catch (error) {
+  console.error('AxiosError:', error);
+  if (error.response) {
+    console.log('Error response:', error.response.data);
+  }
+}
+  }
+}catch (error) {
+  console.error('AxiosError:', error);
+  if (error.response) {
+    console.log('Error response:', error.response.data);
+  }
+}
+
 
     setTimeout(()=>{
-        navigate("/");
+        navigate("/loginhomepagemodified");
     }, 1000);
 
   };
@@ -50,7 +288,7 @@ function Addbook() {
             <div className="rectangle"></div>
             <img className="nav-bg" src="img/NavBg.png" />
             <div className="div"></div>
-            <form className="frame" onSubmit={handleAdd}>
+            <form className="frame" onSubmit={handleAddCustomer}>
               <div className="overlap-group">
                 <p className="h">Add a Book for Borrow/Buy</p>
                 <div className="firstname-input">
@@ -196,26 +434,30 @@ function Addbook() {
                 </button>
                 <div className="group-wrapper">
                   <div className="group">
-                    <p className="drag-your-images">
+                    {/* <p className="drag-your-images">
                       <span className="text-wrapper-6">
                         Drag your images here, or{" "}
                       </span>
                       <span className="text-wrapper-7" onclick="browseImages()">
                         browse
                       </span>
-                    </p>
+                    </p> */}
+                    <input
+                    type="file"
+                    id="fileInput"
+                    class="group"
+                     onChange={handleFileChange}
+                    accept="image/jpeg, image/jpg, image/png"
+                    multiple
+                  />
                     <div className="supported-JPG-JPEG">
                       Supported:&nbsp;&nbsp;JPG, JPEG, PNG
                     </div>
+                    
                   </div>
+                  
                 </div>
-                <input
-                  type="file"
-                  id="fileInput"
-                  style={{ display: "none" }}
-                  accept="image/jpeg, image/jpg, image/png"
-                  multiple
-                />
+                
               </div>
             </form>
             <Link to="/hosting">

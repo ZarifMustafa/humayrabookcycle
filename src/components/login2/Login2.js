@@ -3,40 +3,71 @@ import axios from "axios";
 import React, {useState} from "react";
 import { useNavigate } from "react-router";
 import {toast} from "react-toastify";
-import { setLoggedIn} from '../LocalStorage/LocalStorage.js';
+import { setLoggedIn } from '../LocalStorage/LocalStorage.js';
 
 function Login2() {
 
     const [email, setemail] = useState()
     const [pass, setpass] = useState()
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    //const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate=useNavigate();
 
     function Call_Home() {
-        navigate('/profile');
+        navigate('/');
     }
     function Call_SignUp() {
 
         navigate('/Register');
       }
 
+    // const handleLogin = async (e) => {
+    //     e.preventDefault();
+
+
+    //     const res=await axios.get(`http://localhost:5000/getusers/${email}`);
+    //     const data = res.data;
+    //     //console.log(JSON.stringify(res))
+    //     console.log(res)
+    //     if(data.empty()) toast.error("Email or Password did not match!!!")
+    //     if(data.password!=pass)
+    //     {
+    //         toast.error("Email or Password did not match!!!")
+    //         return
+    //     }
+    //     //setIsLoggedIn(true);
+    //     setLoggedIn(data);
+    //     toast.success("Logged In Successfully!!!")
+    //     navigate('/loginhomepagemodified')
+    // }
+
     const handleLogin = async (e) => {
         e.preventDefault();
-
-
-        const res=await axios.get(`http://localhost:5000/getusers/${email}`);
-        const data = res.data;
-        console.log(JSON.stringify(data))
-        if(data.password!=pass)
-        {
-            toast.error("Email or Password did not match!!!")
-            return
+      
+        try {
+          const res = await axios.get(`http://localhost:5000/getusers/${email}`);
+          const data = res.data;
+      
+          if (!data || Object.keys(data).length === 0) {
+            // Handle case where data is empty or undefined
+            toast.error("Invalid credentials!!!");
+            return;
+          }
+      
+          if (data.password !== pass) {
+            toast.error("Invalid credentials!!!");
+            return;
+          }
+      
+          //setIsLoggedIn(true);
+          setLoggedIn(data);
+          toast.success("Logged In Successfully!!!");
+          navigate('/loginhomepagemodified');
+        } catch (error) {
+          console.error("An error occurred during login:", error);
+          toast.error("Invalid credentials!!!");
         }
-        setIsLoggedIn(true);
-        setLoggedIn();
-        toast.success("Logged In Successfully!!!")
-        navigate('/profile')
-    }
+      };
+      
   return (
     <div>
         <div className="login-page">

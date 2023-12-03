@@ -1,11 +1,32 @@
 import './profile.css';
 import { Link } from 'react-router-dom';
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 
 function Profile() {
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    const currentUserString = window.localStorage.getItem("currentUser");
+    if (currentUserString) {
+      const currentUser = JSON.parse(currentUserString);
+      const name = currentUser.name;
+      setName(name);
+      console.log(name);
+    } else {
+      console.log("currentUser is not found in localStorage");
+    }
+  }, []);
+  
+
+  const logOutFunction = () => {
+    // Update local storage with the clicked button's name
+    localStorage.removeItem("currentUser");
+  };
+  
+  
   return (
     <div className="profile-page">
       <div className="overlap-group-wrapper">
@@ -21,10 +42,10 @@ function Profile() {
           <div className="rectangle-4" />
           <div className="rectangle-5" />
           <div className="frame">
-            <div className="text-wrapper-2">Hello Dollar!</div>
+            <div className="text-wrapper-2">Hello {name}</div>
           </div>
           <div className="share-borrow-repeat">Share ,borrow &amp; Repeat</div>
-          <Link className="sign-up-btn" to="/">
+          <Link className="sign-up-btn" to="/" onClick={() => logOutFunction()}>
             <div className="overlap-group-sup">
               <div className="text-wrapper-sup2">Log Out</div>
             </div>
@@ -35,10 +56,9 @@ function Profile() {
             </div>
           </Link>
           <p className="this-is-your-profile">
-            This Is Your Profile Page. You Can See The Progress You&#39;ve Made
-            With Your Info And See Your Borrowed&nbsp;&nbsp;And Owned Books.
+            
           </p>
-          <Link to="/">
+          <Link to="/loginhomepage">
             <div className="book-cycle">BookCycle</div>
           </Link>
           <div className="ellipse" />
@@ -55,7 +75,7 @@ function Profile() {
             </p>
           </div>
           <div className="form-control-wrapper">
-            <div className="form-control">Dollar MSI</div>
+            <div className="form-control">{localStorage.getItem('currentUser') && JSON.parse(localStorage.getItem('currentUser')).name}</div>
           </div>
           <div className="form-control-2">My Account</div>
           <div className="div-wrapper">
@@ -98,19 +118,25 @@ function Profile() {
           </div></Link>
           <div className="username">
             <div className="username-wrapper">
-              <div className="username-2">Dollar MSI</div>
+              <div className="username-2">{localStorage.getItem('currentUser') && JSON.parse(localStorage.getItem('currentUser')).name}</div>
             </div>
             <div className="form-control-5">Username</div>
           </div>
           <div className="lastname">
             <div className="username-3">
-              <div className="username-2">MSI</div>
+              <div className="username-2">{localStorage.getItem('currentUser') &&
+    JSON.parse(localStorage.getItem('currentUser')).name &&
+    JSON.parse(localStorage.getItem('currentUser')).name.split(' ').pop()
+  }</div>
             </div>
             <div className="form-control-6">Last name</div>
           </div>
           <div className="firstname">
             <div className="username-4">
-              <div className="username-2">Dollar</div>
+              <div className="username-2">{localStorage.getItem('currentUser') &&
+    JSON.parse(localStorage.getItem('currentUser')).name &&
+    JSON.parse(localStorage.getItem('currentUser')).name.split(' ')[0]
+  }</div>
             </div>
             <div className="form-control-7">First name</div>
           </div>
@@ -122,7 +148,7 @@ function Profile() {
           </div>
           <div className="email">
             <div className="username-5">
-              <div className="username-2">dollarmsi@gmail.com</div>
+              <div className="username-2">{localStorage.getItem('currentUser') && JSON.parse(localStorage.getItem('currentUser')).email}</div>
             </div>
             <div className="form-control-9">Email Address</div>
           </div>
