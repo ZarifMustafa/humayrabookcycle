@@ -61,6 +61,7 @@ function Login2() {
           //setIsLoggedIn(true);
           setLoggedIn(data);
           toast.success("Logged In Successfully!!!");
+          localStorage.setItem('flagForInit','0');
           navigate('/loginhomepagemodified');
         } catch (error) {
           console.error("An error occurred during login:", error);

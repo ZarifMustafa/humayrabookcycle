@@ -147,7 +147,7 @@
   top: 6px;
 }
 
-#category {
+.home-page #category {
   /*appearance: none;*/
   /* safari */
   /*-webkit-appearance: none;*/
@@ -181,7 +181,7 @@
   width: 214px;
 }
 
-#author {
+.home-page #author {
   /*appearance: none;*/
   /* safari */
   /*-webkit-appearance: none;*/
@@ -207,7 +207,7 @@
 
 
 /* Hide the dropdown content by default */
-.dropdown-content {
+.home-page .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
@@ -218,18 +218,18 @@
 
 /* Style the label and checkboxes */
 /* Hide the checkbox container by default */
-.checkbox-container {
+.home-page .checkbox-container {
   display: none;
 }
 
 /* Style the label and checkboxes */
-label {
+.home-page .label {
   margin: 5px;
 }
 
 
 /* Show the dropdown content when the "Author" text is clicked */
-.author-btn:hover .dropdown-content {
+.home-page .author-btn:hover .dropdown-content {
   display: block;
 }
 
@@ -242,7 +242,7 @@ label {
   width: 212px;
 }
 
-#publications {
+.home-page #publications {
   /*appearance: none;*/
   /* safari */
   /*-webkit-appearance: none;*/
@@ -326,7 +326,7 @@ label {
   width: 212px;
 }
 
-#owner {
+.home-page #owner {
   /*appearance: none;*/
   /* safari */
   /*-webkit-appearance: none;*/

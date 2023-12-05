@@ -93,7 +93,7 @@ function Borrowrequest() {
               <div className="frame-2">
                 <div className="form-control">Book:</div>
                 <div className="form-control-2">Author:</div>
-                <div className="form-control-3">Year:</div>
+                <div className="form-control-3">Rating:</div>
                 <div className="form-control-4">Rental Price:</div>
                 <div className="form-control-wrapper">
                   <div className="form-control-5">{bookToFind[0].title}</div>
@@ -102,10 +102,10 @@ function Borrowrequest() {
                   <div className="form-control-5">{bookToFind[0].author}</div>
                 </div>
                 <div className="frame-3">
-                  <div className="form-control-5">{bookToFind[0].rating}</div>
+                  <div className="form-control-5">{bookToFind[0].rating.toFixed(2)}</div>
                 </div>
                 <div className="frame-4">
-                  <div className="form-control-5">{bookToFind[0].copies[parseInt(localStorage.getItem('clickedButton'))].selling_price*0.1}</div>
+                  <div className="form-control-5">{bookToFind[0].copies[parseInt(localStorage.getItem('clickedButton'))].rental_price}</div>
                 </div>
                 <div className="frame-5" style={{ backgroundImage: `url(${bookToFind[0].image})` }} />
               </div>

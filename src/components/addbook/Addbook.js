@@ -3,281 +3,171 @@ import "./addbook.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { calcLength } from "framer-motion";
 
 function Addbook() {
-  const [name, setname] = useState();
-  const [catagory, setCatagory] = useState();
-  const [author, setAuthor] = useState();
-  const [sellingprice, setsellingprice] = useState();
-  const [lendingPrice, setlendingPrice] = useState();
-  const [duration, setduration] = useState();
-  const [fileContent, setFileContent] = useState('');
+  const [name, setname] = useState("");
+  const [catagory, setCatagory] = useState("");
+  const [author, setAuthor] = useState("");
+  const [pages, setPages] = useState("");
+  const [sellingprice, setsellingprice] = useState("");
+  const [lendingPrice, setlendingPrice] = useState("");
+  const [duration, setduration] = useState("");
+  const [fileContent, setFileContent] = useState("");
+  const [rating, setrating] = useState();
   const navigate = useNavigate();
 
   const imageStorageKey = "3ace044b7c7d9d5697f7eb8c463d2b4a";
-  const urlImageBB = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
 
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
     setFileContent(file);
-    console.log(file);
-    // if (file) {
-    //   try {
-    //     const content = await readFileContent(file);
-    //     setFileContent(content);
-    //     console.log(content);
-    //   } catch (error) {
-    //     console.error('Error reading the file:', error);
-    //   }
-    // }
 
-
-    
-  };
-
-  const handleAddCustomer = async (e) => {
-
-    const image = fileContent;
     const formData = new FormData();
-    formData.append("image", image);
+    formData.append("image", file);
     const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
 
-      e.preventDefault();
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        body: formData,
+      });
+      const imgData = await response.json();
 
-console.log(sellingprice);
+      if (imgData.success) {
+        const copiesData = [
+          { sellPrice: sellingprice * 1, lendPrice: lendingPrice * 1 },
+          // ... more copies data
+        ];
 
+        const requestBody = {
+          title: name,
+          author: author,
+          genres: Array.isArray(catagory) ? catagory : [catagory],
+          rating: parseFloat(rating),
+          pages: parseInt(pages, 10),
+          image: imgData.data.url,
+          price: 0,
+          reviews: [
+            {
+              name: "Shayla",
+              comment: "Good",
+            },
+          ],
+          copies: copiesData.map((copy) => ({
+            owner: JSON.parse(localStorage.getItem("currentUser")).email,
+            current_holder: JSON.parse(localStorage.getItem("currentUser"))
+              .email,
+            selling_price: copy.sellPrice * 1,
+            rental_price: copy.lendPrice * 1,
+          })),
+        };
 
-    
-    
-    fetch(url, {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then(
-        (imgData) => {
-        if (imgData.success){
-          const copiesData = [
-            { sellPrice: sellingprice * 1, lendPrice: lendingPrice *1 },
-            // ... more copies data
-          ];
-          
-          console.log(copiesData);
-          
-          
-          // Create requestBody
-          const requestBody = {
-            title: name,
-            author: author,
-            genres: Array.isArray(catagory) ? catagory : [catagory],
-            rating: 0.0,
-            pages:0,
-            image: imgData.data.url,
-            price:0,
-            reviews: [
-              {
-                  name: "Shayla",
-                  comment:"Good",
-              },
-            ],
-          
-            copies: copiesData.map(copy => ({
-                owner: JSON.parse(localStorage.getItem('currentUser')).email,
-                current_holder: JSON.parse(localStorage.getItem('currentUser')).email,
-                selling_price: copy.sellPrice * 1,
-                rental_price: copy.lendPrice * 1,
-            })),
-          };
-          console.log(requestBody)
-          const requestBody2 = {
-            
-            title: name,
-            copies: copiesData.map(copy => ({
-                owner: JSON.parse(localStorage.getItem('currentUser')).email,
-                current_holder: JSON.parse(localStorage.getItem('currentUser')).email,
-                selling_price: copy.sellPrice * 1,
-                rental_price: copy.lendPrice * 1,
-            })),
-          };
-          // Use requestBody for further processing, e.g., inserting into MongoDB
-          
-          try{
-            const respp = axios.get("http://localhost:5000/getBooks");
-            const copies = respp.data;
-            console.log('Egula copies: ');
-            console.log(copies);
-            //const owner = JSON.parse(localStorage.getItem('currentUser')).email;
-           // const updatedRequests = [];
-           var flag =0;
-            for (let i = 0; i < copies.length; i++) {
-              if (copies[i].title === name) {
-                flag=1;
-                try {
-                  const response = axios.post("http://localhost:5000/addCopiesToBook", requestBody2);
-                  console.log(response.data);
-                  const data = response.data;
-                  if (!data.acknowledged) {
-                    toast.error("Could not add copies to the book");
-                    return;
-                  }
-                  toast.success("Successfully added the book");
-                } catch (error) {
-                  console.error('AxiosError:', error);
-                  if (error.response) {
-                    console.log('Error response:', error.response.data);
-                  }
+        const requestBody2 = {
+  
+          title: name,
+          copies: copiesData.map(copy => ({
+              owner: JSON.parse(localStorage.getItem('currentUser')).email,
+              current_holder: JSON.parse(localStorage.getItem('currentUser')).email,
+              selling_price: copy.sellPrice * 1,
+              rental_price: copy.lendPrice * 1,
+          })),
+        };
+        try {
+          const respp = await axios.get("http://localhost:5000/getBooks");
+          const copies = respp.data;
+          console.log("Existing copies: ");
+          console.log(copies);
+
+          var flag = 0;
+          for (let i = 0; i < copies.length; i++) {
+            if (copies[i].title === name) {
+              flag = 1;
+              try {
+                const response = await axios.post(
+                  "http://localhost:5000/addCopiesToBook",
+                  // { title: name, copies: copiesData }
+                  requestBody2
+                );
+                console.log("Add Copies Result:", response.data);
+
+                const data = response.data;
+                if (!data.acknowledged) {
+                  toast.error("Could not add copies to the book");
+                  return;
+                }
+                toast.success("Successfully added the book");
+              } catch (error) {
+                console.error("AxiosError:", error);
+                if (error.response) {
+                  console.log("Error response:", error.response.data);
                 }
               }
             }
-              if(flag===0)
-              { try{
-                const response = axios.post("http://localhost:5000/insertbook", requestBody);
-            console.log(response.data);
-            const data= response.data
-              if(!data.acknowledged)
-              {
-                  toast.error("Could not add book");
-                  return;
+          }
+
+          if (flag === 0) {
+            try {
+              const response = await axios.post(
+                "http://localhost:5000/insertbook",
+                requestBody
+              );
+              console.log("Insert Book Result:", response.data);
+
+              const data = response.data;
+              if (!data.acknowledged) {
+                toast.error("Could not add book");
+                return;
               }
-          
+
               toast.success("Successfully added the book");
-            // Process the data here
-          } catch (error) {
-            console.error('AxiosError:', error);
-            if (error.response) {
-              console.log('Error response:', error.response.data);
+            } catch (error) {
+              console.error("AxiosError:", error);
+              if (error.response) {
+                console.log("Error response:", error.response.data);
+              }
             }
           }
-            }
-          }catch (error) {
-            console.error('AxiosError:', error);
-            if (error.response) {
-              console.log('Error response:', error.response.data);
-            }
+        } catch (error) {
+          console.error("AxiosError:", error);
+          if (error.response) {
+            console.log("Error response:", error.response.data);
           }
-          
-          
-              setTimeout(()=>{
-                  navigate("/loginhomepagemodified");
-              }, 1000);
-         }
-
-        })
-      }
-  const handleAdd = async (e) => {
-    e.preventDefault();
-
-console.log(sellingprice)
-
- // Assuming you have a copies array provided by the user
- const copiesData = [
-  { sellPrice: sellingprice * 1, lendPrice: lendingPrice *1 },
-  // ... more copies data
-];
-
-console.log(copiesData);
-
-
-// Create requestBody
-const requestBody = {
-  title: name,
-  author: author,
-  genres: Array.isArray(catagory) ? catagory : [catagory],
-  rating: 0.0,
-  pages:0,
-  image:"",
-  price:0,
-  reviews: [
-    {
-        name: "Shayla",
-        comment:"Good",
-    },
-  ],
-
-  copies: copiesData.map(copy => ({
-      owner: JSON.parse(localStorage.getItem('currentUser')).email,
-      current_holder: JSON.parse(localStorage.getItem('currentUser')).email,
-      selling_price: copy.sellPrice * 1,
-      rental_price: copy.lendPrice * 1,
-  })),
-};
-console.log(requestBody)
-const requestBody2 = {
-  
-  title: name,
-  copies: copiesData.map(copy => ({
-      owner: JSON.parse(localStorage.getItem('currentUser')).email,
-      current_holder: JSON.parse(localStorage.getItem('currentUser')).email,
-      selling_price: copy.sellPrice * 1,
-      rental_price: copy.lendPrice * 1,
-  })),
-};
-// Use requestBody for further processing, e.g., inserting into MongoDB
-
-  
-
-
-try{
-  const respp = await axios.get("http://localhost:5000/getBooks");
-  const copies = respp.data;
-  console.log('Egula copies: ');
-  console.log(copies);
-  //const owner = JSON.parse(localStorage.getItem('currentUser')).email;
- // const updatedRequests = [];
- var flag =0;
-  for (let i = 0; i < copies.length; i++) {
-    if (copies[i].title === name) {
-      flag=1;
-      try {
-        const response = await axios.post("http://localhost:5000/addCopiesToBook", requestBody2);
-        console.log(response.data);
-        const data = response.data;
-        if (!data.acknowledged) {
-          toast.error("Could not add copies to the book");
-          return;
         }
-        toast.success("Successfully added the book");
-      } catch (error) {
-        console.error('AxiosError:', error);
-        if (error.response) {
-          console.log('Error response:', error.response.data);
-        }
+
+        setTimeout(() => {
+          navigate("/loginhomepagemodified");
+        }, 1000);
       }
+    } catch (error) {
+      console.error("FetchError:", error);
     }
-  }
-    if(flag===0)
-    { try{
-      const response = await axios.post("http://localhost:5000/insertbook", requestBody);
-  console.log(response.data);
-  const data= response.data
-    if(!data.acknowledged)
-    {
-        toast.error("Could not add book");
-        return;
-    }
+  };
 
-    toast.success("Successfully added the book");
-  // Process the data here
-} catch (error) {
-  console.error('AxiosError:', error);
-  if (error.response) {
-    console.log('Error response:', error.response.data);
-  }
-}
-  }
-}catch (error) {
-  console.error('AxiosError:', error);
-  if (error.response) {
-    console.log('Error response:', error.response.data);
-  }
-}
-
-
-    setTimeout(()=>{
-        navigate("/loginhomepagemodified");
-    }, 1000);
-
+  const StarRating = () => {
+    // const [rating, setRating] = useState(0);
+    const [hover, setHover] = useState(0);
+    return (
+      <div className="star-rating">
+        {[...Array(5)].map((star, index) => {
+          index += 1;
+          return (
+            <button
+              type="button"
+              key={index}
+              className={index <= (hover || rating) ? "on" : "off"}
+              onClick={() => 
+                setrating(index)
+              }
+              onMouseEnter={() => setHover(index)}
+              onMouseLeave={() => setHover(rating)}
+            >
+              <span className="star">&#9733;</span>
+              <span className="star-image"></span>
+            </button>
+          );
+        })}
+      </div>
+    );
   };
 
   return (
@@ -288,7 +178,7 @@ try{
             <div className="rectangle"></div>
             <img className="nav-bg" src="img/NavBg.png" />
             <div className="div"></div>
-            <form className="frame" onSubmit={handleAddCustomer}>
+            <form className="frame" onSubmit={(e) => e.preventDefault()}>
               <div className="overlap-group">
                 <p className="h">Add a Book for Borrow/Buy</p>
                 <div className="firstname-input">
@@ -335,8 +225,12 @@ try{
                   </p>
                 </div>
                 <div className="overlap-3">
-                  <div className="country-input-2">
-                    <div className="text-wrapper">
+                  <input className="country-input-2" type="text" placeholder="Enter No. of Pages"
+                    onChange={(e) => {
+                      setPages(e.target.value);
+                    }}
+                  >
+                    {/* <div className="text-wrapper">
                       <select
                         className="input"
                         name="Author"
@@ -357,18 +251,23 @@ try{
                         <option value="Bhagat">Chetan Bhagat</option>
                         <option value="toriyama">Akira Toriyama</option>
                       </select>
-                    </div>
-                  </div>
+                    </div> */}
+                  </input>
                   <p className="p">
-                    <span className="span">Book Author </span>{" "}
+                    <span className="span">Book Pages </span>{" "}
                     <span className="text-wrapper-2">*</span>
                   </p>
                 </div>
                 <div className="email">What is the offering?</div>
                 <p className="form-control-2">
-                  <span className="span">Book Type </span>{" "}
+                  <span className="span">Book Author </span>{" "}
                   <span className="text-wrapper-2">*</span>
                 </p>
+                <input type="text" className="firstname-input-2" placeholder="Enter Author"
+                  onChange={(e) => {
+                    setAuthor(e.target.value);
+                  }}
+                />
                 <p className="form-control-3">
                   <span className="span">
                     Upload the Cover Page of the Book{" "}
@@ -387,7 +286,10 @@ try{
                         }}
                       />
                     </div>
+                    
                   </div>
+
+                  
                   <p className="form-control-4">
                     <span className="text-wrapper-3">Price </span>{" "}
                     <span className="text-wrapper-4">*</span>
@@ -405,12 +307,13 @@ try{
                         }}
                       />
                     </div>
+                    
                   </div>
                   <div className="form-control-5">Price</div>
                 </div>
                 <div className="overlap-6">
-                  <div className="input-form-control">
-                    <div className="text-wrapper">
+                  <div className="input-form-control-rating">
+                    {/* <div className="text-wrapper">
                       <input
                         className="inputPrice"
                         type="number"
@@ -419,10 +322,12 @@ try{
                           setduration(e.target.value);
                         }}
                       />
-                    </div>
+                    </div> */}
+                    <StarRating></StarRating>
+
                   </div>
                   <p className="form-control-4">
-                    <span className="text-wrapper-3">Duration </span>{" "}
+                    <span className="text-wrapper-3">Rating </span>{""}
                     <span className="text-wrapper-4">*</span>
                   </p>
                 </div>
@@ -434,30 +339,19 @@ try{
                 </button>
                 <div className="group-wrapper">
                   <div className="group">
-                    {/* <p className="drag-your-images">
-                      <span className="text-wrapper-6">
-                        Drag your images here, or{" "}
-                      </span>
-                      <span className="text-wrapper-7" onclick="browseImages()">
-                        browse
-                      </span>
-                    </p> */}
                     <input
-                    type="file"
-                    id="fileInput"
-                    class="group"
-                     onChange={handleFileChange}
-                    accept="image/jpeg, image/jpg, image/png"
-                    multiple
-                  />
+                      type="file"
+                      id="fileInput"
+                      className="file-input-group"
+                      onChange={handleFileChange}
+                      accept="image/jpeg, image/jpg, image/png"
+                      multiple
+                    />
                     <div className="supported-JPG-JPEG">
                       Supported:&nbsp;&nbsp;JPG, JPEG, PNG
                     </div>
-                    
                   </div>
-                  
                 </div>
-                
               </div>
             </form>
             <Link to="/hosting">
@@ -470,4 +364,4 @@ try{
   );
 }
 
-export default Addbook;
+export default Addbook;

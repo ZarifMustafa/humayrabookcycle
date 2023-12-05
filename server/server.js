@@ -508,6 +508,7 @@ app.post("/insertbook", function(req, res) {
     image: req.body.image,
     price: req.body.price,
     copies: req.body.copies.map(copy => ({
+      _id: new ObjectId(),
       owner: copy.owner,
       current_holder: copy.current_holder,
       selling_price: copy.selling_price * 1,
@@ -518,7 +519,7 @@ app.post("/insertbook", function(req, res) {
       comment: review.comment,
     })),
   };
-
+  
   db.collection('books').insertOne(requestBody)
     .then(function(result) {
       res.json(result);

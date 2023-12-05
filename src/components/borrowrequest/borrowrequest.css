@@ -191,6 +191,10 @@
   position: absolute;
   top: -1px;
   white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 300px;
+  text-align: left;
 }
 
 .borrow-request-page .div-wrapper {

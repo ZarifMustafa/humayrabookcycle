@@ -95,6 +95,27 @@
         border-color: #e6e6e6;
     }
 
+    .buyborrowbook-page .firstname-input-2 {
+        position: absolute;
+        width: 586px;
+        height: 37px;
+        top: 216px;
+        left: 205px;
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: var(--second-text-color);
+        font-size: 14px;
+        letter-spacing: 0.2px;
+        line-height: 28px;
+        background-color: #f8f8f8;
+        border-radius: 5px;
+        overflow: hidden;
+        border: 1px solid;
+        border-color: #e6e6e6;
+        outline:none;
+        text-indent: 20px;
+    }
+
     .buyborrowbook-page .text-wrapper {
         position: absolute;
         top: 4px;
@@ -187,11 +208,15 @@
         height: 38px;
         top: 14px;
         left: 144px;
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
         background-color: #f8f8f8;
         border-radius: 5px;
         overflow: hidden;
         border: 1px solid;
+        outline: none;
         border-color: #e6e6e6;
+        text-indent: 20px;
     }
 
     .buyborrowbook-page .img {
@@ -263,6 +288,20 @@
         overflow: hidden;
         border: 1px solid;
         border-color: #e6e6e6;
+    }
+
+    .buyborrowbook-page .input-form-control-rating {
+        position: absolute;
+        width: 347px;
+        height: 58px;
+        top: 14px;
+        left: 86px;
+        background-color: #f8f8f8;
+        border-radius: 5px;
+        overflow: hidden;
+        border: 1px solid;
+        border-color: #e6e6e6;
+        
     }
 
     .buyborrowbook-page .form-control-4 {
@@ -405,6 +444,14 @@
         height: 36px;
         top: 18px;
         left: 231px;
+    }
+
+    .buyborrowbook-page .file-input-group {
+        position: relative;
+        width: 284px;
+        height: 36px;
+        top: -5px;
+        left: 50px;
     }
 
     .buyborrowbook-page .drag-your-images {
@@ -555,3 +602,48 @@
 100% {
         transform: translateX(100%);}
 }
+
+.buyborrowbook-page .star-rating {
+    margin-top: 12px; /* Adjust the margin as needed to create space between the StarRating and the text above */
+  }
+
+.buyborrowbook-page .star-rating button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 50px; /* Adjust the font size as needed */
+    position: relative;
+    
+  }
+  
+  .buyborrowbook-page .star-rating .on {
+    position: relative; /* Use relative positioning */
+    z-index: 2; /* Set a higher z-index to overlap the off state */
+  }
+  
+  .buyborrowbook-page .star-rating .on .star-image {
+    background-image: url(./pngwing.png);
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 54px;
+    left: 0;
+    position: absolute; /* Use absolute positioning to overlap with the text */
+    top: -10px;
+    width: 56px;
+  }
+  
+  .buyborrowbook-page .star-rating .off {
+    color: #ccc;
+    position: relative; /* Use relative positioning */
+    z-index: 1; /* Set a lower z-index */
+  }
+  
+  .buyborrowbook-page .star-rating body {
+    padding: 100px;
+  }
+  
+  .buyborrowbook-page .star-rating .star {
+    position: relative;
+    top: -20px; /* Adjust the value to move the star up or down */
+  }

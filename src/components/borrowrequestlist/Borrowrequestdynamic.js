@@ -22,7 +22,7 @@ function Borrowrequestdynamic() {
       buyer: item.email,
       seller: JSON.parse(localStorage.getItem('currentUser')).email,
       bookName: item.title,
-      price: item.selling_price,
+      price: item.rental_price,
       book_id: item.book_id,
       image: item.image,
     }
@@ -89,11 +89,11 @@ function Borrowrequestdynamic() {
           <div className="rectangle" />
           <img className="nav-bg" alt="Nav bg" src="/img/NavBg.png" />
           <div className="div" />
-          <button className="sign-up-btn" onClick={Call_Profile}>
+          {/* <button className="sign-up-btn" onClick={Call_Profile}>
             <div className="overlap-group-profile">
               <div className="text-wrapper-2-profile">{JSON.parse(localStorage.getItem('currentUser')).name}</div>
             </div>
-          </button>
+          </button> */}
           <div className="text-wrapper">Borrow Requests</div>
           {requests.map((item, index) => (
             <form className="frame" onSubmit={(event) => handleBorrowRequestList(event, item)}>

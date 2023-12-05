@@ -1001,10 +1001,10 @@
   border-color: #adadade6;
   border-radius: 30px;
   box-shadow: 0px 4px 4px #00000040;
-  height: 85px;
+  height: 169px;
   left: 246px;
   position: absolute;
-  top: 1132px;
+  top: 1147px;
   width: 270px;
   
 }
@@ -1033,7 +1033,7 @@
   line-height: 35px;
   position: absolute;
   text-align: center;
-  top: 1153px;
+  top: 1203px;
   width: 288px;
   user-select: none;
 }
@@ -1480,4 +1480,11 @@
 body > #root > div {
   /* height: 600%; */
   height: 3300px;
+}
+.hosting-page .search-bar input[type="text"] {
+  flex-grow: 1;
+  padding: 50px;
+  border: none; /* Remove the border */
+  outline: none;
+  background: transparent; /* Make the input background transparent */
 }

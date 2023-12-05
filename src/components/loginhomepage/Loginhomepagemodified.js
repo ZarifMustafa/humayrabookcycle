@@ -12,6 +12,7 @@ function Loginhomepagemodified() {
   const [searchValue, setSearchValue] = useState("");
   const [value, setValue] = useState("");
   const [books, setbooks] = useState([]);
+  const [allbooks, setallbooks] = useState([]);
   const [selectedAuthor, setSelectedAuthor] = useState("Author");
   const [selectedGenre, setSelectedGenre] = useState("Category");
   const [selectedOwner, setSelectedOwner] = useState("Owner");
@@ -23,6 +24,7 @@ function Loginhomepagemodified() {
 
   const [selectedOption, setSelectedOption] = useState(null);
   const options = ["author 1", "author 2", "author 3", "author 4"];
+
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -107,6 +109,14 @@ function Loginhomepagemodified() {
       .then((response) => {
         // Handle the API response here
         setbooks(response.data);
+        
+        let flag=localStorage.getItem('flagForInit');
+        console.log('Flag: ');
+        console.log(flag);
+        if(flag===null || flag==='0'){
+          setallbooks(response.data);
+          localStorage.setItem('flagForInit','1');
+        }
         setBookToFind(response.data);
         console.log(response.data); // This will log the response data to the console
       })
@@ -120,7 +130,7 @@ function Loginhomepagemodified() {
     navigate('/buyrequestdynamic');
   }
   function callBorrowrequestlist() {
-    navigate('/borrowrequestdynamic');    /////////////////////////
+    navigate('/borrowrequestdynamic'); 
   }
 
   function callLogOut() {
@@ -256,7 +266,7 @@ function Loginhomepagemodified() {
             </div>
           </div>
           
-            <div className="dropdown-button">
+            {/* <div className="dropdown-button">
                 <button onClick={toggleDropdown} className="button">
                     {selectedAuthor || "Author"}
                     <img src ={arrow} className="w-1" style={{"margin-left":"50px"}} />
@@ -270,8 +280,19 @@ function Loginhomepagemodified() {
                     ))}
                     </ul>
                 )}
-            </div>
+            </div> */}
             
+            <div className="dropdown-button">
+              
+                  <select id="author" className="button" name="author" onChange={(e) => setSelectedAuthor(e.target.value)}>
+                    <option value="Author">Author</option>
+                    {
+                      allbooks.map((book,index) =>(
+                        <option value={book.author} key={index}>{book.author}</option>
+                      ))
+                    }
+                  </select>
+            </div>
             
             <select onChange={(e) => setSelectedGenre(e.target.value)}>
               <option value="Category">Category</option>
@@ -286,7 +307,7 @@ function Loginhomepagemodified() {
             </select>
 
 
-            <div className="dropdown-button-category">
+            {/* <div className="dropdown-button-category">
             <button onClick={toggleDropdownCategory} className="button-category">
                 {selectedGenre || "Category"}
                 <img src={brownarrow} className="w-1" style={{ "marginLeft": "50px" }} />
@@ -300,6 +321,19 @@ function Loginhomepagemodified() {
                 ))}
                 </ul>
             )}
+            </div> */}
+            <div className="dropdown-button-category">
+            <select id="category" className="button-category" name="category" onChange={(e) => setSelectedGenre(e.target.value)}>
+                    <option value="Category">Category</option>
+                    <option value="Novel">Novel</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Comics">Comics</option>
+                    <option value="Humor">Humor</option>
+                    <option value="Dystopian">Dystopian</option>
+                    <option value="Science Fiction">Science Fiction</option>
+                    <option value="Political">Political</option>
+                  </select>
             </div>
             
         <div className="owner-BTN">
@@ -437,10 +471,10 @@ function Loginhomepagemodified() {
           <div className="add-a-book-for" onClick={call_addbook}> 
             Add A Book <br/> for Buy
           </div>
-          <div className="add-BTN-borrow" onClick={call_addbook_borrow} />
+          {/* <div className="add-BTN-borrow" onClick={call_addbook_borrow} />
           <div className="add-a-book-for-borrow">
             Add A Book <br/> for Borrow
-          </div>
+          </div> */}
           <div className="check-BTN" onClick={call_tradelist} />
           <p className="let-others-see">
             Let Others See &amp; Explore

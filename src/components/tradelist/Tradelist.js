@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 
 
 export const Tradelist = () => {
-  const [rating, setrating] = useState();
+  const [ratings, setRatings] = useState([]);
   const [copies, setCopies] = useState([]);
   const navigate = useNavigate();
 
@@ -37,48 +37,55 @@ export const Tradelist = () => {
     fetchData();
     
   },[]);
-  const functionForRating  = async (e) => {
-   // e.preventDefault();
-  //   const requestBodyForRatings = {
-      
-  //       currentUserRating: rating,
-  //       bookTitle: JSON.parse(localStorage.getItem('bookToFind'))[0].title
-  //     }
- 
-  //  try {
-  //           const response = await axios.put("http://localhost:5000/updateBookRating", requestBodyForRatings);
-  //           console.log(response.data);
-  //           const data = response.data;
-  //           if (!data.acknowledged) {
-  //             toast.error("Could not add copies to the book");
-  //             return;
-  //           }
-  //           toast.success("Successfully added the book");
-  //         } catch (error) {
-  //           console.error('AxiosError:', error);
-  //           if (error.response) {
-  //             console.log('Error response:', error.response.data);
-  //           }
-  //         }
+  const functionForRating  = async (index) => {
+   // // Use the specific rating for the trade at the given index
+    const ratingForTrade = ratings[index];
+
+    const requestBodyForRatings = {
+      currentUserRating: ratingForTrade,
+      bookTitle: copies[index].book,
+    };
+
+    try {
+      const response = await axios.put("http://localhost:5000/updateBookRating", requestBodyForRatings);
+      console.log(response.data);
+      const data = response.data;
+      if (!data.acknowledged) {
+        toast.error("Could not add copies to the book");
+        return;
+      }
+      toast.success("Successfully added the book");
+    } catch (error) {
+      console.error('AxiosError:', error);
+      if (error.response) {
+        console.log('Error response:', error.response.data);
+      }
+    }
 
   };
 
-  const StarRating = () => {
-    // const [rating, setRating] = useState(0);
+  const StarRating = ({ index }) => {
+    // Initialize the rating state with the corresponding value from the ratings array
+    const [rating, setRating] = useState(ratings[index] || 0);
     const [hover, setHover] = useState(0);
+  
     return (
       <div className="star-rating">
-        {[...Array(5)].map((star, index) => {
-          index += 1;
+        {[...Array(5)].map((star, starIndex) => {
+          starIndex += 1;
           return (
             <button
               type="button"
-              key={index}
-              className={index <= (hover || rating) ? "on" : "off"}
-              onClick={() => 
-                setrating(index)
-              }
-              onMouseEnter={() => setHover(index)}
+              key={starIndex}
+              className={starIndex <= (hover || rating) ? "on" : "off"}
+              onClick={() => {
+                setRating(starIndex);
+                // Update the rating array with the new rating for the specific trade
+                const newRatings = [...ratings];
+                newRatings[index] = starIndex;
+                setRatings(newRatings);
+              }}
+              onMouseEnter={() => setHover(starIndex)}
               onMouseLeave={() => setHover(rating)}
             >
               <span className="star">&#9733;</span>
@@ -89,6 +96,7 @@ export const Tradelist = () => {
       </div>
     );
   };
+  
   return (
     <div className="trade-list-page">
       <div className="overlap-wrapper">
@@ -104,7 +112,7 @@ export const Tradelist = () => {
           {
             // copies && copies.length > 0 && (
               copies.map((copy,index) => (
-                <div className="group">
+                <div className="group" key={index}>
             <div className="overlap-2">
 
               <div className="form-control">To/From:</div>
@@ -137,21 +145,12 @@ export const Tradelist = () => {
               <div className="form-control-5">Book Name:</div>
               <div className="form-control-6">{copy.book}</div>
               <div className="input-form-control">
-              <form id="searchForm" class="searchForm" onSubmit={functionForRating}>
-              {/* <input
-                      className="inputName"
-                      type="text"
-                      placeholder="Enter Rating of counterpart"
-                      onChange={(e) => {
-                        setrating(e.target.value);
-                      }}
-                    /> */}
-               
-                <StarRating></StarRating>
-                <button className="frame-111">
-                   <div className="rate111">Rate</div>
-                   </button>
-                     </form> 
+                <form id="searchForm" className="searchForm" onSubmit={() => functionForRating(index)}>
+                  <StarRating index={index} />
+                  <button className="frame-111">
+                    <div className="rate111">Rate</div>
+                  </button>
+                </form>
               </div>
             </div>
           </div>
