@@ -44,7 +44,7 @@ function Login2() {
         e.preventDefault();
       
         try {
-          const res = await axios.get(`http://localhost:5000/getusers/${email}`);
+          const res = await axios.get(process.env.REACT_APP_CURRENT_PATH+`/getusers/${email}`);
           const data = res.data;
       
           if (!data || Object.keys(data).length === 0) {

@@ -26,7 +26,7 @@ function Confirmorder() {
     try {
       
       const copyId= JSON.parse(localStorage.getItem('confirmOrder')).book_id;
-      const response = await fetch(`http://localhost:5000/deleteCopy/${copyId}`, {
+      const response = await fetch(process.env.REACT_APP_CURRENT_PATH+`/deleteCopy/${copyId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ function Confirmorder() {
       });
 
       const data = await response.json();
-      const response2 = await axios.delete(`http://localhost:5000/buyRrequestsDelete/${copyId}`);
+      const response2 = await axios.delete(process.env.REACT_APP_CURRENT_PATH+`/buyRrequestsDelete/${copyId}`);
       const data2=response2.data;
       if (response.ok) {
         // alert('Copy deleted successfully');
@@ -99,7 +99,7 @@ function Confirmorder() {
   })),
     }
     try{
-      const respp = await axios.get("http://localhost:5000/getTrades");
+      const respp = await axios.get(process.env.REACT_APP_CURRENT_PATH+"/getTrades");
       const copies = respp.data;
       console.log('Egula copies: ');
       console.log(copies);
@@ -112,7 +112,7 @@ function Confirmorder() {
         ) {
           flag=1;
           try {
-            const response = await axios.post("http://localhost:5000/addTradesToTradelist", requestBody);
+            const response = await axios.post(process.env.REACT_APP_CURRENT_PATH+"/addTradesToTradelist", requestBody);
             console.log(response.data);
             const data = response.data;
             if (!data.acknowledged) {
@@ -130,7 +130,7 @@ function Confirmorder() {
         if (copies[i].useremail === JSON.parse(localStorage.getItem('confirmOrder')).buyer) {
          flag2=1;
           try {
-            const response = await axios.post("http://localhost:5000/addTradesToTradelist", requestBody2);
+            const response = await axios.post(process.env.REACT_APP_CURRENT_PATH+"/addTradesToTradelist", requestBody2);
             console.log(response.data);
             const data = response.data;
             if (!data.acknowledged) {
@@ -148,7 +148,7 @@ function Confirmorder() {
       }
       if(flag===0)
       { try{
-        const response = await axios.post("http://localhost:5000/inserttrade", requestBody);
+        const response = await axios.post(process.env.REACT_APP_CURRENT_PATH+"/inserttrade", requestBody);
     console.log(response.data);
     const data= response.data
       if(!data.acknowledged)
@@ -168,7 +168,7 @@ function Confirmorder() {
     }
     if(flag2===0)
     { try{
-      const response2 = await axios.post("http://localhost:5000/inserttrade", requestBody2);
+      const response2 = await axios.post(process.env.REACT_APP_CURRENT_PATH+"/inserttrade", requestBody2);
   console.log(response2.data);
   const data= response2.data
     if(!data.acknowledged)
@@ -202,13 +202,11 @@ function Confirmorder() {
       const selectedOwner = "Owner";
       const selectedAuthor = "Author";
   
-      const res = await axios.get(`http://localhost:5000/searchByTitle?title=${title}&genre=${selectedGenre}&owner=${selectedOwner}&author=${selectedAuthor}`);
+      const res = await axios.get(process.env.REACT_APP_CURRENT_PATH+`/searchByTitle?title=${title}&genre=${selectedGenre}&owner=${selectedOwner}&author=${selectedAuthor}`);
       const book = res.data;
   
       const email = JSON.parse(localStorage.getItem('confirmOrder')).buyer;
-      // Correct the interpolation in the URL here
-      //  const userRes = await axios.get(`http://localhost:5000/getUser/${email}`);
-      //  const buyer = userRes.data;
+      
   
       console.log(book);
       setAuthor(book[0].author);

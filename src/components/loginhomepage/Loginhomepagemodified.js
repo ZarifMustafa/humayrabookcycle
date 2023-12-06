@@ -74,7 +74,7 @@ function Loginhomepagemodified() {
   }
 
   function call_profile() {
-    navigate("/profile");
+    navigate("/profilemodified");
   }
 
   function Call_BookDetails() {
@@ -101,7 +101,7 @@ function Loginhomepagemodified() {
     console.log(titleToSearch, "hlkeflk");
 
     // Define the URL of your API endpoint
-    const apiUrl = `http://localhost:5000/searchByTitle?title=${titleToSearch}&genre=${selectedGenre}&owner=${selectedOwner}&author=${selectedAuthor}`;
+    const apiUrl = process.env.REACT_APP_CURRENT_PATH+`/searchByTitle?title=${titleToSearch}&genre=${selectedGenre}&owner=${selectedOwner}&author=${selectedAuthor}`;
 
     // Make the GET request to the API
     axios
@@ -140,7 +140,7 @@ function Loginhomepagemodified() {
   async function Call_Buy(title) {
     try {
       
-      const response = await axios.get(`http://localhost:5000/bookByTitle/${title}`);
+      const response = await axios.get(process.env.REACT_APP_CURRENT_PATH+`/bookByTitle/${title}`);
       const books=[];
       console.log(response.data);
       books.push(response.data);
@@ -154,7 +154,7 @@ function Loginhomepagemodified() {
   
   async function Call_Borrow(title) {
     // console.log(findBookToFind());
-    const response = await axios.get(`http://localhost:5000/bookByTitle/${title}`);
+    const response = await axios.get(process.env.REACT_APP_CURRENT_PATH+`/bookByTitle/${title}`);
       const books=[];
       console.log(response.data);
       books.push(response.data);
@@ -173,7 +173,7 @@ function Loginhomepagemodified() {
   //   navigate('/readpage');
   // }
   async function Call_ReadPage(_id,title) {
-    const response = await axios.get(`http://localhost:5000/bookByTitle/${title}`);
+    const response = await axios.get(process.env.REACT_APP_CURRENT_PATH+`/bookByTitle/${title}`);
       const books=[];
       console.log(response.data);
       books.push(response.data);
@@ -183,7 +183,7 @@ function Loginhomepagemodified() {
   }
   async function Call_BookDetails(title) {
     console.log(findBookToFind());
-    const response = await axios.get(`http://localhost:5000/bookByTitle/${title}`);
+    const response = await axios.get(process.env.REACT_APP_CURRENT_PATH+`/bookByTitle/${title}`);
       const books=[];
       console.log(response.data);
       books.push(response.data);

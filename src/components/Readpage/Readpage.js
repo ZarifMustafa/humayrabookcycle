@@ -58,12 +58,12 @@ function Readpage() {
             <div className="overlap-2">
               <div className="form-control">Book:</div>
               <div className="text-wrapper">Author:</div>
-              <div className="form-control-2">Year:</div>
+              <div className="form-control-2">Pages:</div>
               <div className="frame">
                 <div className="form-control-3">{currentBook?.author}</div>
               </div>
               <div className="form-control-wrapper">
-                <div className="form-control-3">{currentBook?.year}</div>
+                <div className="form-control-3">{currentBook?.pages}</div>
               </div>
               <div className="frame-2">
                 <div className="div-wrapper">
@@ -86,7 +86,7 @@ function Readpage() {
               </div>
             </div>
           </div>
-          <div className="log-in-btn">
+          {/* <div className="log-in-btn">
             <div className="rubaba-hadiel-wrapper">
               <div className="rubaba-hadiel">Rubaba Hadiel</div>
             </div>
@@ -95,7 +95,7 @@ function Readpage() {
             <div className="log-out-wrapper">
               <div className="log-out">Log Out</div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -39,12 +39,13 @@ const Register = () => {
             city: city,
             area: area,
             interest: "",
-            dob: dob
+            dob: dob,
+            rating:4.0,
         }
+        localStorage.setItem('flagForInit','0');
 
 
-
-        const res=await axios.post("http://localhost:5000/insertuser", requestBody);
+        const res=await axios.post(process.env.REACT_APP_CURRENT_PATH+"/insertuser", requestBody);
         const data = res.data;
         console.log(data)
         console.log(res)

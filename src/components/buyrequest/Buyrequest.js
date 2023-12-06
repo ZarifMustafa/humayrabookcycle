@@ -15,7 +15,7 @@ function Buyrequest() {
 
 
   function Call_Home() {
-    navigate("/loginhomepage");
+    navigate("/loginhomepagemodified");
   }
   function CallProfile()
   {
@@ -56,7 +56,7 @@ function Buyrequest() {
       bookID: localStorage.getItem('bookID')
     }
     console.log(requestBody);
-    const res=await axios.post("http://localhost:5000/appendrequest", requestBody);
+    const res=await axios.post(process.env.REACT_APP_CURRENT_PATH+"/appendrequest", requestBody);
     const data = res.data;
     console.log('Ekhane res.data: ');
     console.log(res.data);
@@ -72,7 +72,7 @@ function Buyrequest() {
 
 
 const getUser = async (email) =>{
-  const res=await axios.get(`http://localhost:5000/getusers/${email}`);
+  const res=await axios.get(process.env.REACT_APP_CURRENT_PATH+`/getusers/${email}`);
   const data = res.data;
   console.log(data);
   return data;
@@ -110,7 +110,8 @@ return(
                 <div className="form-control-5">{bookToFind[0].author}</div>
               </div>
               <div className="frame-3">
-                <div className="form-control-5">{bookToFind[0].rating}</div>
+              <div className="form-control-5">{bookToFind[0].rating.toFixed(2)}</div>
+
               </div>
               <div className="frame-4">
               <div className="form-control-6">

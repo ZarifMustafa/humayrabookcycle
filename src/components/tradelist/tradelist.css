@@ -188,17 +188,17 @@
 .trade-list-page .author-btn {
   all: unset;
   box-sizing: border-box;
-  height: 55px;
+  height: 25px;
   left: 644px;
   position: absolute;
-  top: 275px;
+  top: 295px;
   width: 225px;
 }
 
 .trade-list-page .overlap-group-2 {
   background-color: #2e1115;
   border-radius: 20px;
-  height: 55px;
+  height: 45px;
   position: relative;
   width: 223px;
 }
@@ -209,6 +209,37 @@
   font-size: 24px;
   font-weight: 700;
   left: 69px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 10px;
+  width: 83px;
+}
+.trade-list-page .author-btn2 {
+  all: unset;
+  box-sizing: border-box;
+  height: 25px;
+  left: 664px;
+  position: absolute;
+  top: 212px;
+  width: 170px;
+}
+
+.trade-list-page .overlap-group-22 {
+  background-color: #2e1115;
+  border-radius: 20px;
+  height: 45px;
+  position: relative;
+  width: 180px;
+}
+
+.trade-list-page .text-wrapper-22 {
+  color: #ffffff;
+  font-family: "Poppins-Bold", Helvetica;
+  font-size: 24px;
+  font-weight: 700;
+  left: 25px;
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
@@ -231,19 +262,23 @@
 }
 
 .trade-list-page .overlap-group-wrapper {
-  height: 58px;
-  left: 699px;
+  height: 48px;
+  left: 330px;
   position: absolute;
-  top: 153px;
-  width: 170px;
+  top: 0px;
+  width: 270px;
+  border:none;
+  outline:none;
 }
 
 .trade-list-page .rate-wrapper {
   background-color: #2e1115;
   border-radius: 20px;
-  height: 58px;
+  height: 45px;
   position: relative;
-  width: 168px;
+  width: 178px;
+  top: 0px;
+  left: -7px;
 }
 
 .trade-list-page .rate {
@@ -256,7 +291,7 @@
   line-height: normal;
   position: absolute;
   text-align: center;
-  top: 11px;
+  top: 10px;
   width: 63px;
 }
 
@@ -267,7 +302,7 @@
   font-weight: 600;
   left: 72px;
   letter-spacing: 0.2px;
-  line-height: 24px;
+  line-height: 32px;
   position: absolute;
   top: 212px;
   white-space: nowrap;
@@ -280,7 +315,7 @@
   font-weight: 400;
   left: 342px;
   letter-spacing: 0.2px;
-  line-height: 24px;
+  line-height: 32px;
   position: absolute;
   top: 212px;
   white-space: nowrap;
@@ -296,11 +331,12 @@
   overflow: hidden;
   position: absolute;
   top: 153px;
-  width: 347px;
+  width: 547px;
 }
 
 .trade-list-page .searchForm {
   margin-top: 10px;
+  
 }
 
 .trade-list-page .email {
@@ -391,6 +427,12 @@
   top: 2px;
   white-space: nowrap;
 }
+
+.trade-list-page .star-rating  {
+  text-align: left;
+  padding-left: 20px; /* Adjust the value as needed */
+}
+
 
 .trade-list-page .star-rating button {
   background-color: transparent;

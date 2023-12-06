@@ -73,7 +73,7 @@ function Addbook() {
           })),
         };
         try {
-          const respp = await axios.get("http://localhost:5000/getBooks");
+          const respp = await axios.get(process.env.REACT_APP_CURRENT_PATH+"/getBooks");
           const copies = respp.data;
           console.log("Existing copies: ");
           console.log(copies);
@@ -84,7 +84,7 @@ function Addbook() {
               flag = 1;
               try {
                 const response = await axios.post(
-                  "http://localhost:5000/addCopiesToBook",
+                  process.env.REACT_APP_CURRENT_PATH+"/addCopiesToBook",
                   // { title: name, copies: copiesData }
                   requestBody2
                 );
@@ -108,7 +108,7 @@ function Addbook() {
           if (flag === 0) {
             try {
               const response = await axios.post(
-                "http://localhost:5000/insertbook",
+                process.env.REACT_APP_CURRENT_PATH+"/insertbook",
                 requestBody
               );
               console.log("Insert Book Result:", response.data);

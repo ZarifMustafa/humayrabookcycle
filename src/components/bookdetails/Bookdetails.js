@@ -15,7 +15,7 @@ function Bookdetails() {
 
   const navigate = useNavigate();
   function Call_Home() {
-    navigate("/homepage");
+    navigate("/loginhomepagemodified");
   }
   function Call_Buypage() {
     navigate("/buypage");
@@ -41,7 +41,7 @@ function Bookdetails() {
     };
     
     try {
-      const response = await axios.post("http://localhost:5000/addReviewsToBook", requestBodyForReviews);
+      const response = await axios.post(process.env.REACT_APP_CURRENT_PATH+"/addReviewsToBook", requestBodyForReviews);
       console.log(response.data);
       const data = response.data;
       if (!data.acknowledged) {
@@ -67,7 +67,7 @@ function Bookdetails() {
       }
       console.log(requestBodyForRatings);
         try {
-                  const response = await axios.put("http://localhost:5000/updateBookRating", requestBodyForRatings);
+                  const response = await axios.put(process.env.REACT_APP_CURRENT_PATH+"/updateBookRating", requestBodyForRatings);
                   console.log(response.data);
                   const data = response.data;
                   if (!data.acknowledged) {
@@ -130,7 +130,7 @@ function Bookdetails() {
                   <div className="form-control">Ratings:</div>
                 </div>
                 <div className="div-wrapper">
-                  <div className="text-wrapper">{JSON.parse(localStorage.getItem('bookToFind'))[0].rating}</div>
+                  <div className="text-wrapper">{JSON.parse(localStorage.getItem('bookToFind'))[0].rating.toFixed(2)}</div>
                 </div>
               </div>
 

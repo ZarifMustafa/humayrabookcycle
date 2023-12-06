@@ -37,7 +37,7 @@ function Buyrequestdynamic() {
 
   const getUser = async (email) => {
     try {
-      const res = await axios.get(`http://localhost:5000/getUser/${email}`);
+      const res = await axios.get(process.env.REACT_APP_CURRENT_PATH+`/getUser/${email}`);
       const data = res.data;
       console.log(data);
       return data;
@@ -49,7 +49,7 @@ function Buyrequestdynamic() {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/getCopies");
+      const res = await axios.get(process.env.REACT_APP_CURRENT_PATH+"/getCopies");
       const copies = res.data;
       console.log('Egula copies: ');
       console.log(copies);
@@ -58,7 +58,7 @@ function Buyrequestdynamic() {
 
       for (let i = 0; i < copies.length; i++) {
         if (copies[i].owner === owner) {
-          const resp = await axios.get(`http://localhost:5000/getRequests/${copies[i]._id}`);
+          const resp = await axios.get(process.env.REACT_APP_CURRENT_PATH+`/getRequests/${copies[i]._id}`);
           const reqForCopy = resp.data.requests;
           // const response2 = await getUser(owner);
           // console.log(response2);

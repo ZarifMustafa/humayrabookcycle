@@ -10,7 +10,7 @@ function Buypagemodified() {
   const navigate = useNavigate();
 
   function Call_Home() {
-    navigate("/");
+    navigate("/loginhomepagemodified");
   }
   const [bookToFind, setBookToFind] = useState({});
 
@@ -23,9 +23,10 @@ function Buypagemodified() {
 
   //const [seller, setSeller] = useState({});
   useEffect(() => {
-    
+    setBookToFind(JSON.parse(localStorage.getItem('bookToFind')));
     return () => {
-      setBookToFind(findBookToFind());
+      // setBookToFind(findBookToFind());
+      setBookToFind(JSON.parse(localStorage.getItem('bookToFind')));
     }
   }, [])
   
@@ -84,7 +85,7 @@ function Buypagemodified() {
               <div className="buy-this-book">Buy This Book</div>
             </button>
             <div className="frame-5" />
-            <div className="frame-6">
+            {/* <div className="frame-6">
               <div className="frame-7">
                 <div className="form-control-4">5 Star</div>
               </div>
@@ -95,7 +96,7 @@ function Buypagemodified() {
                 <div className="frame-11" />
                 <div className="frame-12" />
               </div>
-            </div>
+            </div> */}
             <div className="form-control-6">Price:</div>
             <div className="frame-13">
               <div className="form-control-4">{copy.selling_price}</div>

@@ -439,7 +439,7 @@ app.delete('/deleteCopy/:copyId', async (req, res) => {
     const book = await db.collection('books').findOne({ 'copies._id': new ObjectId(copyId) });
 
     if (!book) {
-      return res.status(404).json({ error: 'Book not found for the given copy ID' });
+      return res.status(404).json({ success: false,error: 'Book not found for the given copy ID' });
     }
 
     // Remove the specific copy from the book's copies array
@@ -449,13 +449,13 @@ app.delete('/deleteCopy/:copyId', async (req, res) => {
     );
 
     if (result.modifiedCount === 0) {
-      return res.status(404).json({ error: 'Copy not found for the given copy ID' });
+      return res.status(404).json({ success: false,error: 'Copy not found for the given copy ID' });
     }
 
-    res.json({ message: 'Copy deleted successfully' });
+    res.json({ success: true, message: 'Copy deleted successfully' });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ success: false, error: 'Internal Server Error' });
   }
 });
 
@@ -735,4 +735,36 @@ app.post("/inserttrade", function(req, res) {
       }).catch(function(err) {
           res.json('Error hoye gese');
       });
+  });
+
+  app.put('/updateUserRating', async (req, res) => {
+    const { currentUserRating, counterpart } = req.body;
+   
+    try {
+      // 1. Find the book in MongoDB
+      const book = await db.collection('user').findOne({ email: counterpart });
+   
+      if (book) {
+        // 2. Calculate the average of the current user's rating and the existing rating of the book
+        const existingRating = book.rating || 0; // Assume 0 if no rating exists
+        const averageRating = (currentUserRating + existingRating) / 2;
+   
+        // 3. Update the rating attribute of the book in MongoDB
+        const result = await db.collection('user').updateOne(
+          { email: counterpart},
+          { $set: { rating: averageRating } }
+        );
+   
+        if (result.modifiedCount > 0) {
+          res.json({ acknowledged: true, message: 'User rating updated successfully' });
+        } else {
+          res.json({ acknowledged: false, message: 'User not found or rating not updated' });
+        }
+      } else {
+        res.json({ acknowledged: false, message: 'User not found' });
+      }
+    } catch (error) {
+      console.error('MongoDB Error:', error);
+      res.status(500).json({ acknowledged: false, message: 'Internal server error' });
+    }
   });

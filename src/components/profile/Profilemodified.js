@@ -41,7 +41,7 @@ function Profilemodified() {
     try {
       const _id = JSON.parse(localStorage.getItem("currentUser"))._id
       // Make an API request to update the user profile on the backend
-      const response = await axios.put("https://bookcycle.onrender.com/api/update-profile", {...updatedUser,_id});
+      const response = await axios.put(process.env.REACT_APP_CURRENT_PATH+"/api/update-profile", {...updatedUser,_id});
 
       // Handle success
       toast.success(response.data.message);
@@ -62,7 +62,7 @@ function Profilemodified() {
         const userId = currentUser._id;
 
         // Make an API request to get the user profile based on ID
-        const response = await axios.get(`https://bookcycle.onrender.com/api/get-user/${userId}`);
+        const response = await axios.get(process.env.REACT_APP_CURRENT_PATH+`/api/get-user/${userId}`);
 
         // Update the state with the fetched user data
         setName(response.data.name);
@@ -179,15 +179,15 @@ function Profilemodified() {
           </div>
           <div className="lastname">
             <div className="username-3">
-              <input type="text" disabled={!isInputEnabled} className="username-2" placeholder='MSI' />
+              <input type="text" disabled={!isInputEnabled} className="username-2" placeholder='Enter Password' />
             </div>
-            <div className="form-control-6">Last name</div>
+            <div className="form-control-6">Password</div>
           </div>
           <div className="firstname">
             <div className="username-4">
-              <input type="text" disabled={!isInputEnabled} className="username-2" placeholder='Dollar' />
+              <input type="text" disabled={!isInputEnabled} className="username-2" placeholder='Enter Mobile No.' />
             </div>
-            <div className="form-control-7">First name</div>
+            <div className="form-control-7">Mobile No.</div>
           </div>
           <div className="city">
             <div className="username-wrapper">

@@ -12,11 +12,19 @@ function Confirmborrow() {
   function Call_Home() {
     navigate("/loginhomepagemodified");
   }
-
+  function getCurrentDate() {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based
+    const day = date.getDate().toString().padStart(2, '0');
+  
+    return `${year}-${month}-${day}`;
+  }
   const handleconfirmborrow = async (e) =>  {
     try {
+      e.preventDefault();
       const copyId= JSON.parse(localStorage.getItem('confirmBorrow')).book_id;
-      const response = await fetch(`http://localhost:5000/deleteCopy/${copyId}`, {
+      const response = await fetch(process.env.REACT_APP_CURRENT_PATH+`/deleteCopy/${copyId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -28,7 +36,8 @@ function Confirmborrow() {
       console.log(response);
       if (response.ok) {
         // alert('Copy deleted successfully');
-        toast.success('Copy deleted successfully');
+        toast.success('Lend Request Confirmed');
+        
         
       } else {
         // alert(`Error: ${data.error}`);
@@ -36,6 +45,147 @@ function Confirmborrow() {
       }
       navigate('/loginhomepagemodified');
     } catch (error) {
+      console.error('Error:', error);
+      // alert('An unexpected error occurred');
+      toast.error('An unexpected error occurred');
+    }
+
+    const copiesData = [
+      { 
+        activity: 'lent', 
+        counterpart:  JSON.parse(localStorage.getItem('confirmBorrow')).buyer,
+        book: JSON.parse(localStorage.getItem('confirmBorrow')).bookName,
+        price: JSON.parse(localStorage.getItem('confirmBorrow')).price,
+        date: getCurrentDate(),
+      },
+        // ... more copies data
+    ]
+    const requestBody = {
+      useremail: JSON.parse(localStorage.getItem('currentUser')).email,
+
+      copies: copiesData.map(copy => ({
+      activity: copy.activity,
+      counterpart:copy.counterpart,
+      book: copy.book,
+      price: copy.price,
+      date: copy.date,      
+  })),
+    }
+
+    const copiesData2 = [
+      { 
+        activity: 'bought', 
+        counterpart:  JSON.parse(localStorage.getItem('confirmBorrow')).seller,
+        book: JSON.parse(localStorage.getItem('confirmBorrow')).bookName,
+        price: JSON.parse(localStorage.getItem('confirmBorrow')).price,
+        date: getCurrentDate(),
+ 
+      },
+        // ... more copies data
+      ];
+    const requestBody2 = {
+      useremail: JSON.parse(localStorage.getItem('confirmBorrow')).buyer,
+
+      copies: copiesData2.map(copy => ({
+      activity: copy.activity,
+      counterpart:copy.counterpart,
+      book: copy.book,
+      price: copy.price,
+      date: copy.date,
+  })),
+    }
+
+    try{
+      const respp = await axios.get(process.env.REACT_APP_CURRENT_PATH+"/getTrades");
+      const copies = respp.data;
+      console.log('Egula copies: ');
+      console.log(copies);
+      //const owner = JSON.parse(localStorage.getItem('currentUser')).email;
+     // const updatedRequests = [];
+     var flag =0;
+     var flag2=0;
+      for (let i = 0; i < copies.length; i++) {
+        if (copies[i].useremail === JSON.parse(localStorage.getItem('currentUser')).email
+        ) {
+          flag=1;
+          try {
+            const response = await axios.post(process.env.REACT_APP_CURRENT_PATH+"/addTradesToTradelist", requestBody);
+            console.log(response.data);
+            const data = response.data;
+            if (!data.acknowledged) {
+              toast.error("Could not add copies to the book");
+              return;
+            }
+            toast.success("Successfully added the book");
+          } catch (error) {
+            console.error('AxiosError:', error);
+            if (error.response) {
+              console.log('Error response:', error.response.data);
+            }
+          }
+        }
+        if (copies[i].useremail === JSON.parse(localStorage.getItem('confirmOrder')).buyer) {
+         flag2=1;
+          try {
+            const response = await axios.post(process.env.REACT_APP_CURRENT_PATH+"/addTradesToTradelist", requestBody2);
+            console.log(response.data);
+            const data = response.data;
+            if (!data.acknowledged) {
+              toast.error("Could not add copies to the book");
+              return;
+            }
+            toast.success("Successfully added the book");
+          } catch (error) {
+            console.error('AxiosError:', error);
+            if (error.response) {
+              console.log('Error response:', error.response.data);
+            }
+          }
+        }
+      }
+      if(flag===0)
+      { try{
+        const response = await axios.post(process.env.REACT_APP_CURRENT_PATH+"/inserttrade", requestBody);
+    console.log(response.data);
+    const data= response.data
+      if(!data.acknowledged)
+      {
+          toast.error("Could not add book");
+          return;
+      }
+   
+      toast.success("Successfully added the book");
+    // Process the data here
+  } catch (error) {
+    console.error('AxiosError:', error);
+    if (error.response) {
+      console.log('Error response:', error.response.data);
+    }
+  }
+    }
+    if(flag2===0)
+    { try{
+      const response2 = await axios.post(process.env.REACT_APP_CURRENT_PATH+"/inserttrade", requestBody2);
+  console.log(response2.data);
+  const data= response2.data
+    if(!data.acknowledged)
+    {
+        toast.error("Could not add book");
+        return;
+    }
+ 
+    toast.success("Successfully added the book");
+  // Process the data here
+} catch (error) {
+  console.error('AxiosError:', error);
+  if (error.response) {
+    console.log('Error response:', error.response.data);
+  }
+}
+  }
+  }
+   
+    catch (error) {
       console.error('Error:', error);
       // alert('An unexpected error occurred');
       toast.error('An unexpected error occurred');
@@ -49,7 +199,7 @@ function Confirmborrow() {
       const selectedOwner = "Owner";
       const selectedAuthor = "Author";
   
-      const res = await axios.get(`http://localhost:5000/searchByTitle?title=${title}&genre=${selectedGenre}&owner=${selectedOwner}&author=${selectedAuthor}`);
+      const res = await axios.get(process.env.REACT_APP_CURRENT_PATH+`/searchByTitle?title=${title}&genre=${selectedGenre}&owner=${selectedOwner}&author=${selectedAuthor}`);
       const book = res.data;
   
       const email = JSON.parse(localStorage.getItem('confirmBorrow')).buyer;
@@ -118,7 +268,7 @@ function Confirmborrow() {
               <div className="frame-11" />
             </div>
           </div>
-          <button className="frame-12" type='submit' onClick={handleconfirmborrow}>
+          <button className="frame-12" type='submit' >
             <div className="text-wrapper-2">Confirm Request</div>
           </button>
           </form>

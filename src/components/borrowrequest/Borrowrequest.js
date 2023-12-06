@@ -55,7 +55,7 @@ function Borrowrequest() {
       bookID: localStorage.getItem('bookID')
     }
     console.log(requestBody);
-    const res=await axios.post("http://localhost:5000/appendrequestborrow", requestBody);
+    const res=await axios.post(process.env.REACT_APP_CURRENT_PATH+"/appendrequestborrow", requestBody);
     const data = res.data;
     console.log('Ekhane res.data: ');
     console.log(res.data);
@@ -70,7 +70,7 @@ function Borrowrequest() {
 
 
   const getUser = async (email) =>{
-    const res=await axios.get(`http://localhost:5000/getusers/${email}`);
+    const res=await axios.get(process.env.REACT_APP_CURRENT_PATH+`/getusers/${email}`);
     const data = res.data;
     console.log(data);
     return data;
