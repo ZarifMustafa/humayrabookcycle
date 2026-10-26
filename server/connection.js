@@ -1,7 +1,12 @@
+import "dotenv/config";
 import { MongoClient } from "mongodb";
 
 let con;
-const url = "mongodb+srv://Zarif_Mustafa:p_202114107@cluster0.8le4rjx.mongodb.net/?retryWrites=true&w=majority";
+const url = process.env.MONGODB_URI;
+
+if (!url) {
+  throw new Error("MONGODB_URI is not set. Add it to server/.env (see server/.env.example).");
+}
 
 function connectKorbe(callback) {
   MongoClient.connect(url)
